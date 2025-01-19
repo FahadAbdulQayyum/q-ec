@@ -36,12 +36,12 @@ const CartPopup = () => {
                 {/*/ <h2 className="text-xl font-semibold mb-4">Cart</h2> */}
                 <ul>
                     {Object.entries(productCount).map(([product, count]) => (
-                        <span className="flex justify-between align-center w-[280px] px-5">
+                        <div key={product} className="flex justify-between align-center w-[280px] px-5">
                             <li key={product} className="mb-2">
                                 {product} -  {count}
                             </li>
                             <TiDelete className="text-red-600 text-3xl bg-white rounded-full" />
-                        </span>
+                        </div>
                     ))}
                 </ul>
                 <div className="mt-4">
