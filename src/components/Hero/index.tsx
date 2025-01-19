@@ -9,7 +9,6 @@ import { incrementValue } from "../lib/features/counter/counterSlice";
 const Hero: React.FC = () => {
 
     const count = useSelector((state: RootState) => state.counter.value)
-    console.log('count...', count)
 
     const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
 
