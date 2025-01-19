@@ -33,7 +33,7 @@ const CartPopup = () => {
     return <span>
         {cart.length &&
             <div className="bg-blue-500 text-white fixed bottom-4 left-4 p-2 rounded-lg">
-                {/* <h2 className="text-xl font-semibold mb-4">Cart</h2> */}
+                {/*/ <h2 className="text-xl font-semibold mb-4">Cart</h2> */}
                 <ul>
                     {Object.entries(productCount).map(([product, count]) => (
                         <span className="flex justify-between align-center w-[280px] px-5">
