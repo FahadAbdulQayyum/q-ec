@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import Providers from "@/components/Providers";
+import CartPopup from "@/components/cartPopup";
 
 // const myInter = Inter({
 const myfont = Inter({
@@ -27,14 +28,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={myfont.className}>
         <Providers>
-          <span className="fixed top-0 left-0 right-0 z-50">
-            <UpperBanner />
-            <Navbar />
+          <span className="relative">
+            <span className="fixed top-0 left-0 right-0 z-50">
+              <UpperBanner />
+              <Navbar />
+            </span>
+            <div className="mt-24">
+              {children}
+            </div>
+            <CartPopup />
+            <Footer />
           </span>
-          <div className="mt-24">
-            {children}
-          </div>
-          <Footer />
         </Providers>
       </body>
     </html >

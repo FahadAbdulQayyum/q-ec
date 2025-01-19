@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import { client } from '@/sanity/lib/client';
 import { useSearchParams } from 'next/navigation'; // Change this import
+import { useDispatch } from 'react-redux';
+import { pushCart } from '@/components/lib/features/cart/cartSlice';
 
 import { ImLocation } from "react-icons/im";
 
@@ -30,6 +32,11 @@ const FetchingSanityData = () => {
 
     const searchParams = useSearchParams();
     const address = searchParams.get('address');
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (productName: dataType) => {
+        dispatch(pushCart(productName));
+    };
 
     useEffect(() => {
         const fetchFunction = async () => {
@@ -84,6 +91,11 @@ const FetchingSanityData = () => {
                             <p className={`text-sm ${service.currently_offered ? 'text-green-500' : 'text-red-500'}`}>
                                 {service.currently_offered ? 'Offered' : 'Not Offered'}
                             </p>
+                            <button
+                                onClick={() => handleAddToCart(service)}
+                                className="mt-2 bg-blue-500 text-white py-1 px-3 rounded">
+                                Add to Cart
+                            </button>
                         </div>
                     ))}
                 </div>
