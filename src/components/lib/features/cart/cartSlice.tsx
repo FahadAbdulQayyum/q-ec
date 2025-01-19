@@ -1,16 +1,27 @@
 "use client"
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+    createSlice,
+    // PayloadAction
+} from '@reduxjs/toolkit';
 // import { AppStore } from '../../store';
 
+export interface ServiceType {
+    _id: string,
+    name: string,
+    variation: string,
+    city_available: string[],
+    price: number,
+    currently_offered: boolean,
+    pic: string
+}
+
 interface CartState {
-    value: number;
     obj: {
-        productName: string[];
+        productName: ServiceType[];
     }
 }
 
 const initialState: CartState = {
-    value: 0,
     obj: { productName: [] }
 };
 
@@ -18,17 +29,8 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        initializeCount: (state, action: PayloadAction<number>) => {
-            state.value = action.payload;
-        },
         pushCart: (state, action) => {
             state.obj.productName.push(action.payload);
-        },
-        incrementValue: (state) => {
-            state.value += 1;
-        },
-        decrementValue: (state) => {
-            state.value -= 1;
         },
         decrement: (state, action) => {
             console.log('action.payload...', action.payload)
@@ -41,7 +43,7 @@ const cartSlice = createSlice({
 });
 
 // Export the actions
-export const { initializeCount, pushCart, incrementValue, decrementValue, decrement } = cartSlice.actions;
+export const { pushCart, decrement } = cartSlice.actions;
 
 // Export the reducer
 export default cartSlice.reducer;

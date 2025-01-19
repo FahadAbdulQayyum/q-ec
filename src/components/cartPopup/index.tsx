@@ -7,12 +7,23 @@ const CartPopup = () => {
 
     const cart = useSelector((state: RootState) => state.cart.obj.productName);
 
-    const productCount = cart.reduce((acc: { [key: string]: number }, product: string) => {
-        acc[product] = (acc[product] || 0) + 1;
+    // const productCount = cart.reduce((acc: { [key: string]: number }, product: string) => {
+    //     acc[product] = (acc[product] || 0) + 1;
+    //     return acc;
+    // }, {});
+
+    const productCount = cart.reduce<{ [key: string]: number }>((acc, product) => {
+        const key = product.name; // Use 'name' or any other unique string property
+        acc[key] = (acc[key] || 0) + 1;
         return acc;
     }, {});
 
-    // console.log('cart....', cart)
+    // const productCount = cart.reduce<{ [key: string]: number }>((acc, product) => {
+    //     acc[product] = (acc[product] || 0) + 1;
+    //     return acc;
+    // }, {});
+
+    console.log('cart....', cart)
 
     // const totalPrice = cart.length * 10; // Assuming each product costs $10
     const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
