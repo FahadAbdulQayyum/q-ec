@@ -1,7 +1,18 @@
 import React from "react";
 import Image from "next/image";
 
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../lib/store";
+
+import { incrementValue } from "../lib/features/counter/counterSlice";
+
 const Hero: React.FC = () => {
+
+    const count = useSelector((state: RootState) => state.counter.value)
+    console.log('count...', count)
+
+    const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
+
     return (
         <div className="relative h-screen overflow-hidden mx-standardSize">
             {/* The hero image will cover the full container */}
@@ -26,6 +37,10 @@ const Hero: React.FC = () => {
                 <button className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm md:text-base lg:text-lg">
                     Shop Now
                 </button>
+                <div>
+                    <h1>{count}</h1>
+                    <button onClick={() => dispatch(incrementValue())}>Increment</button>
+                </div>
             </div>
         </div>
     );
