@@ -9,7 +9,8 @@ const UpperBanner = () => {
             {/* Left Portion */}
             <div className="left-portion flex justify-center md:justify-start mb-2 md:mb-0">
                 {/* Use the Image component if working with Next.js */}
-                <img src="/assets/nike-logo.svg" alt="Nike logo" className="w-8 h-8" />
+                {/* <img src="/assets/nike-logo.svg" alt="Nike logo" className="w-8 h-8" /> */}
+                <img src="/assets/salon.png" alt="Nike logo" className="w-10 h-10" />
                 {/* <span className="text-sm font-medium">Free Shipping for Members!</span> */}
 
             </div>
