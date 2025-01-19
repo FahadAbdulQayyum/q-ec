@@ -1,16 +1,22 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../lib/store";
+// import { useSelector, useDispatch } from "react-redux";
+// import { RootState, AppDispatch } from "../lib/store";
 
-import { incrementValue } from "../lib/features/counter/counterSlice";
+// import { incrementValue } from "../lib/features/counter/counterSlice";
+
+
 
 const Hero: React.FC = () => {
 
-    const count = useSelector((state: RootState) => state.counter.value)
+    // const count = useSelector((state: RootState) => state.counter.value)
 
-    const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
+    // const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
+
+    const router = useRouter();
+
 
     return (
         <div className="relative h-screen overflow-hidden mx-standardSize">
@@ -33,15 +39,18 @@ const Hero: React.FC = () => {
                 <p className="mt-4 text-lg md:text-xl lg:text-2xl">
                     Explore the latest collection of Nike shoes
                 </p>
-                <button className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm md:text-base lg:text-lg">
-                    Shop Now
+                <button
+                    className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm md:text-base lg:text-lg"
+                    onClick={() => router.push('/Location')}
+                >
+                    Book Now
                 </button>
-                <div>
+                {/* <div>
                     <h1>{count}</h1>
                     <button onClick={() => dispatch(incrementValue())}>Increment</button>
-                </div>
+                </div> */}
             </div>
-        </div>
+        </div >
     );
 };
 
