@@ -2,6 +2,7 @@
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../lib/store'
+import { TiDelete } from "react-icons/ti";
 
 const CartPopup = () => {
 
@@ -31,21 +32,24 @@ const CartPopup = () => {
 
     return <span>
         {cart.length &&
-            <div className="bg-orange-600 text-white fixed bottom-4 left-4">
-                <h2 className="text-xl font-semibold mb-4">Cart</h2>
+            <div className="bg-blue-500 text-white fixed bottom-4 left-4 p-2 rounded-lg">
+                {/* <h2 className="text-xl font-semibold mb-4">Cart</h2> */}
                 <ul>
                     {Object.entries(productCount).map(([product, count]) => (
-                        <li key={product} className="mb-2">
-                            {product} - Quantity: {count}
-                        </li>
+                        <span className="flex justify-between align-center w-[280px] px-5">
+                            <li key={product} className="mb-2">
+                                {product} -  {count}
+                            </li>
+                            <TiDelete className="text-red-600 text-3xl bg-white rounded-full" />
+                        </span>
                     ))}
                 </ul>
                 <div className="mt-4">
                     <strong>Total Price: ${totalPrice}</strong>
                 </div>
-
-            </div>}
-    </span>
+            </div>
+        }
+    </span >
 
 }
 
