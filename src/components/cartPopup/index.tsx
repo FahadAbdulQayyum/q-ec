@@ -24,7 +24,7 @@ const CartPopup = () => {
     //     return acc;
     // }, {});
 
-    console.log('cart....', cart)
+    // console.log('cart....', cart)
 
     // const totalPrice = cart.length * 10; // Assuming each product costs $10
     const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
