@@ -29,20 +29,23 @@ const CartPopup = () => {
     const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
 
-    return <div className="bg-orange-600 text-white fixed bottom-4 left-4">
-        <h2 className="text-xl font-semibold mb-4">Cart</h2>
-        <ul>
-            {Object.entries(productCount).map(([product, count]) => (
-                <li key={product} className="mb-2">
-                    {product} - Quantity: {count}
-                </li>
-            ))}
-        </ul>
-        <div className="mt-4">
-            <strong>Total Price: ${totalPrice}</strong>
-        </div>
+    return <span>
+        {cart.length &&
+            <div className="bg-orange-600 text-white fixed bottom-4 left-4">
+                <h2 className="text-xl font-semibold mb-4">Cart</h2>
+                <ul>
+                    {Object.entries(productCount).map(([product, count]) => (
+                        <li key={product} className="mb-2">
+                            {product} - Quantity: {count}
+                        </li>
+                    ))}
+                </ul>
+                <div className="mt-4">
+                    <strong>Total Price: ${totalPrice}</strong>
+                </div>
 
-    </div>
+            </div>}
+    </span>
 
 }
 
