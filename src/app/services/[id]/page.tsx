@@ -83,8 +83,9 @@ const FetchingSanityDataById = () => {
 
   useEffect(() => {
     const fetchFunction = async () => {
+      console.log('dataString', dataString)
       const data: dataType[] = await client.fetch(`
-                *[_id in path(${dataString})]
+                *[_id in path("${dataString}")]
             `);
       let { servicesList } = data[0]
       console.log('...data...62...', servicesList)

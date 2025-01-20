@@ -76,7 +76,7 @@ const FetchingSanityData = () => {
     }
 
     const handleRouter = (service: any) => {
-        router.push(`/services/${service._id}`)
+        router.push(`/services/${service._id}?data=${service._id}`)
     }
 
     return (
