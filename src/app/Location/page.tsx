@@ -19,7 +19,7 @@ const Location = () => {
             const fetchLocationData = await client.fetch(`
                 *[_type=='location']{ name }
                 `)
-            // console.log('fetched location data', fetchLocationData)
+            console.log('fetched location data', fetchLocationData)
             setLocation(fetchLocationData);
             setFilteredLocation(fetchLocationData);
         }
