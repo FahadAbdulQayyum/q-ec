@@ -99,11 +99,11 @@ const FetchingSanityData = () => {
                             />
                             <h2 className="text-xl font-semibold mb-2">{service.name}</h2>
                             <p className="text-gray-700 mb-1">{service.variation}</p>
-                            <p className="text-gray-700 mb-1">{service.city_available}</p>
-                            <p className="text-gray-900 font-bold mb-1">PKR {service.price}/=</p>
-                            <p className={`text-sm ${service.currently_offered ? 'text-green-500' : 'text-red-500'}`}>
+                            {/* <p className="text-gray-700 mb-1">{service.city_available}</p> */}
+                            {/* <p className="text-gray-900 font-bold mb-1">PKR {service.price}/=</p> */}
+                            {/* <p className={`text-sm ${service.currently_offered ? 'text-green-500' : 'text-red-500'}`}>
                                 {service.currently_offered ? 'Offered' : 'Not Offered'}
-                            </p>
+                            </p> */}
                             {/* <button
                                 onClick={() => handleAddToCart(service)}
                                 className="mt-2 bg-blue-500 text-white py-1 px-3 rounded">
