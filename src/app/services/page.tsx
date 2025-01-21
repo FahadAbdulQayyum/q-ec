@@ -14,6 +14,8 @@ import { ImLocation } from "react-icons/im";
 
 import { useRouter } from 'next/navigation';
 import { fetchServices } from '@/components/lib/features/service/serviceSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/components/lib/store';
 
 
 type dataType = {
@@ -42,6 +44,9 @@ const FetchingSanityData = () => {
 
     const router = useRouter();
 
+    const { services } = useSelector((state: RootState) => state.service);
+
+
     // const handleAddToCart = (productName: dataType) => {
     //     dispatch(pushCart(productName));
     // };
@@ -60,20 +65,21 @@ const FetchingSanityData = () => {
             //         "pic": pic.asset->url
             //     }
             // `);
-            const data: dataType[] = result.payload;
+            // const data: dataType[] = result.payload;
             // console.log('data....', data)
             if (address !== null) {
-                const filteredData = data?.filter(service =>
+                const filteredData: dataType[] = services?.filter(service =>
                     service.city_available.split(',').some(city => address.toLowerCase().includes(city.trim().toLowerCase()))
                 );
                 setFetchedData(filteredData);
             } else {
-                setFetchedData(data);
+                setFetchedData(services);
             }
             setLoading(false);
         };
         fetchFunction();
-    }, [address]);
+        // }, [address]);
+    }, [dispatch]);
 
     if (loading) {
         return <div className="flex justify-center items-center h-screen relative">

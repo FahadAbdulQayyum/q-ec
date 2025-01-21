@@ -3,8 +3,17 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '@/sanity/lib/client';
 
 interface Service {
-    id: string;
+    _id: string;
     name: string;
+    variation: string;
+    city_available: string;
+    price: number;
+    currently_offered: boolean;
+    pic: {
+        asset: {
+            _ref: string;
+        };
+    };
 }
 
 interface ServiceState {

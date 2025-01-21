@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './features/counter/counterSlice';
 import cartReducer from './features/cart/cartSlice';
 import productReducer from './features/product/productSlice';
+import serviceReducer from './features/service/serviceSlice';
 import locationReducer from './features/location/locationSlice';
 
 export const makeStore = () => {
@@ -12,6 +13,7 @@ export const makeStore = () => {
             counter: counterReducer, // Ensure `counter` is registered here
             location: locationReducer, // Ensure `counter` is registered here
             product: productReducer, // Ensure `counter` is registered here
+            service: serviceReducer, // Ensure `counter` is registered here
         }
     })
 }
