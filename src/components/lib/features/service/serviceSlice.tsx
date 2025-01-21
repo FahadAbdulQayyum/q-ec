@@ -24,10 +24,19 @@ const initialState: ServiceState = {
 interface FetchedService {
     _id: string;
     name: string;
+    variation: string;
+    city_available: string;
+    price: number;
+    currently_offered: boolean;
+    pic: {
+        asset: {
+            _ref: string;
+        };
+    };
     // ...other properties if needed...
 }
 
-export const fetchServices = createAsyncThunk('product/fetchProducts', async () => {
+export const fetchServices = createAsyncThunk('service/fetchServices', async () => {
     console.log('Fetching services...');
     const data = await client.fetch(`
         *[_type == 'service']{
@@ -41,10 +50,12 @@ export const fetchServices = createAsyncThunk('product/fetchProducts', async () 
         }
     `);
     console.log('Fetched data:', data);
-    return data.map((item: FetchedService): Service => ({
-        id: item._id,
-        name: item.name,
-    }));
+    // return data.map((item: FetchedService): Service => ({
+    //     id: item._id,
+    //     name: item.name,
+    // }));
+
+    return data;
 });
 
 const serviceSlice = createSlice({

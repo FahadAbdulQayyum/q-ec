@@ -8,9 +8,12 @@ import { useSearchParams } from 'next/navigation'; // Change this import
 import { useDispatch } from 'react-redux';
 import { pushCart } from '@/components/lib/features/cart/cartSlice';
 
+import { useAppDispatch } from '@/components/lib/hooks'
+
 import { ImLocation } from "react-icons/im";
 
 import { useRouter } from 'next/navigation';
+import { fetchServices } from '@/components/lib/features/service/serviceSlice';
 
 
 type dataType = {
@@ -34,7 +37,8 @@ const FetchingSanityData = () => {
 
     const searchParams = useSearchParams();
     const address = searchParams.get('address');
-    const dispatch = useDispatch();
+
+    const dispatch = useAppDispatch();
 
     const router = useRouter();
 
@@ -44,20 +48,22 @@ const FetchingSanityData = () => {
 
     useEffect(() => {
         const fetchFunction = async () => {
-            const data: dataType[] = await client.fetch(`
-                *[_type=='service']{
-                    _id, 
-                    name, 
-                    variation, 
-                    city_available, 
-                    price, 
-                    currently_offered, 
-                    "pic": pic.asset->url
-                }
-            `);
+            const result = await dispatch(fetchServices())
+            // const data: dataType[] = await client.fetch(`
+            //     *[_type=='service']{
+            //         _id, 
+            //         name, 
+            //         variation, 
+            //         city_available, 
+            //         price, 
+            //         currently_offered, 
+            //         "pic": pic.asset->url
+            //     }
+            // `);
+            const data: dataType[] = result.payload;
             console.log('data....', data)
             if (address !== null) {
-                const filteredData = data.filter(service =>
+                const filteredData = data?.filter(service =>
                     service.city_available.split(',').some(city => address.toLowerCase().includes(city.trim().toLowerCase()))
                 );
                 setFetchedData(filteredData);
@@ -99,7 +105,7 @@ const FetchingSanityData = () => {
                             />
                             <h2 className="text-xl font-semibold mb-2">{service.name}</h2>
                             <p className="text-gray-700 mb-1">{service.variation}</p>
-                            
+
                         </div>
                     ))}
                 </div>

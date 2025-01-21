@@ -1,8 +1,6 @@
 "use client"
-import { client } from '@/sanity/lib/client'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useDispatch } from 'react-redux'
 import { fetchLocations } from '@/components/lib/features/location/locationSlice'
 
 import { useAppDispatch } from '@/components/lib/hooks'
@@ -18,7 +16,6 @@ const Location = () => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
-    // const dispatch = useDispatch();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
