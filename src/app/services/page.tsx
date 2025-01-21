@@ -53,7 +53,11 @@ const FetchingSanityData = () => {
 
     useEffect(() => {
         const fetchFunction = async () => {
-            const result = await dispatch(fetchServices())
+            // const result = await dispatch(fetchServices())
+            // await dispatch(fetchServices())
+            if (services.length === 0) {
+                await dispatch(fetchServices());
+            }
             // const data: dataType[] = await client.fetch(`
             //     *[_type=='service']{
             //         _id, 
@@ -79,7 +83,10 @@ const FetchingSanityData = () => {
         };
         fetchFunction();
         // }, [address]);
-    }, [dispatch]);
+        // }, [dispatch]);
+        // }, [services]);
+        // }, [dispatch, services]);
+    }, [dispatch, services, address]);
 
     if (loading) {
         return <div className="flex justify-center items-center h-screen relative">

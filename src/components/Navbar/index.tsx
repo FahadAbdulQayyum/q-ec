@@ -2,13 +2,39 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CiHeart, CiSearch } from 'react-icons/ci';
 import { IoBagOutline } from 'react-icons/io5';
 import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
+import { fetchServices, searchService } from '../lib/features/service/serviceSlice';
+
+import { useAppDispatch } from '@/components/lib/hooks'
+
 
 const Navbar: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const [query, setQuery] = useState("");
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(fetchServices()); // Fetch services when the component mounts
+    }, [dispatch]);
+
+    // const searchHandler = async (value: any) => {
+    const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // const searchHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        // await dispatch(fetchServices())
+        // console.log('value....', value)
+
+        setQuery(e.target.value);
+
+        dispatch(searchService(e.target.value))
+        // if (e.target.value === '') {
+        //     await dispatch(fetchServices())
+        // }
+    }
 
     return (
         <div className="flex justify-between items-center px-2 text-black bg-white border-b-2 py-2 md:px-standardSize sm:px-4">
@@ -52,6 +78,7 @@ const Navbar: React.FC = () => {
                     <input
                         className="bg-transparent outline-none text-sm w-32 md:w-48"
                         placeholder="Search"
+                        onChange={searchHandler}
                     />
                 </div>
 
