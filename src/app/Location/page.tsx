@@ -22,16 +22,6 @@ const Location = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        // const fetchLocation = async () => {
-        //     const fetchLocationData = await client.fetch(`
-        //         *[_type=='location']{ name }
-        //         `)
-        //     // console.log('fetched location data', fetchLocationData)
-        //     setLocation(fetchLocationData);
-        //     setFilteredLocation(fetchLocationData);
-        // }
-        // fetchLocation();
-
         const fetchLocation = async () => {
             let data = await dispatch(fetchLocations())
             setLocation(data.payload);
