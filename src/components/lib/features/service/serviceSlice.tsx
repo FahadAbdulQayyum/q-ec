@@ -19,6 +19,7 @@ interface Service {
 interface ServiceState {
     service: Service | null;
     services: Service[];
+    serviceFiltered: Service[];
     loading: boolean;
     error: string | null;
 }
@@ -26,6 +27,7 @@ interface ServiceState {
 const initialState: ServiceState = {
     service: null,
     services: [],
+    serviceFiltered: [],
     loading: false,
     error: null,
 };
@@ -101,13 +103,14 @@ const serviceSlice = createSlice({
 
             // Update the services state with filtered results
             state.services = filteredServices;
-            console.log("Filtered services:", state.services);
+            // state.serviceFiltered = filteredServices;
+            console.log("Filtered services:", state.serviceFiltered);
 
             // const searchQuery = action.payload.toLowerCase().trim(); // Convert query to lowercase for case-insensitive search
             // state.services = state.services.filter((service) =>
             //     service.name.toLowerCase().includes(searchQuery)
             // );
-            console.log("Filtered services:", state.services);
+            // console.log("Filtered services:", state.services);
 
         },
         setServiceName: (state, action: PayloadAction<string>) => {
