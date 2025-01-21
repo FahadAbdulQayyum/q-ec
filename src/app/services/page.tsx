@@ -3,10 +3,10 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
-import { client } from '@/sanity/lib/client';
+// import { client } from '@/sanity/lib/client';
 import { useSearchParams } from 'next/navigation'; // Change this import
-import { useDispatch } from 'react-redux';
-import { pushCart } from '@/components/lib/features/cart/cartSlice';
+// import { useDispatch } from 'react-redux';
+// import { pushCart } from '@/components/lib/features/cart/cartSlice';
 
 import { useAppDispatch } from '@/components/lib/hooks'
 
@@ -42,9 +42,9 @@ const FetchingSanityData = () => {
 
     const router = useRouter();
 
-    const handleAddToCart = (productName: dataType) => {
-        dispatch(pushCart(productName));
-    };
+    // const handleAddToCart = (productName: dataType) => {
+    //     dispatch(pushCart(productName));
+    // };
 
     useEffect(() => {
         const fetchFunction = async () => {
@@ -61,7 +61,7 @@ const FetchingSanityData = () => {
             //     }
             // `);
             const data: dataType[] = result.payload;
-            console.log('data....', data)
+            // console.log('data....', data)
             if (address !== null) {
                 const filteredData = data?.filter(service =>
                     service.city_available.split(',').some(city => address.toLowerCase().includes(city.trim().toLowerCase()))
