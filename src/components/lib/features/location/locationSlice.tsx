@@ -28,19 +28,9 @@ interface FetchedLocation {
 }
 
 export const fetchLocations = createAsyncThunk('product/fetchProducts', async () => {
-    console.log('Fetching locations...');
     const data = await client.fetch(`
-        *[_type == 'location']{
-            _id, 
-            name, 
-            variation, 
-            city_available, 
-            price, 
-            currently_offered, 
-            "pic": pic.asset->url
-        }
+        *[_type == 'location']{ name }
     `);
-    console.log('Fetched data:', data);
     return data.map((item: FetchedLocation): Location => ({
         id: item._id,
         name: item.name,

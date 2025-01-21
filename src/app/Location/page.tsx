@@ -2,6 +2,10 @@
 import { client } from '@/sanity/lib/client'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { useDispatch } from 'react-redux'
+import { fetchLocations } from '@/components/lib/features/location/locationSlice'
+
+import { useAppDispatch } from '@/components/lib/hooks'
 
 interface locationType {
     name: string
@@ -14,14 +18,24 @@ const Location = () => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
+    // const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
+
     useEffect(() => {
+        // const fetchLocation = async () => {
+        //     const fetchLocationData = await client.fetch(`
+        //         *[_type=='location']{ name }
+        //         `)
+        //     // console.log('fetched location data', fetchLocationData)
+        //     setLocation(fetchLocationData);
+        //     setFilteredLocation(fetchLocationData);
+        // }
+        // fetchLocation();
+
         const fetchLocation = async () => {
-            const fetchLocationData = await client.fetch(`
-                *[_type=='location']{ name }
-                `)
-            // console.log('fetched location data', fetchLocationData)
-            setLocation(fetchLocationData);
-            setFilteredLocation(fetchLocationData);
+            let data = await dispatch(fetchLocations())
+            setLocation(data.payload);
+            setFilteredLocation(data.payload);
         }
         fetchLocation();
     }, [])
