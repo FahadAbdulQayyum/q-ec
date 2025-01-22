@@ -5,7 +5,8 @@ import service from './service';
 import location from './location';
 import agent from './agent';
 import job from './job';
+import products from './products';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [postType, service, location, agent, job],
+  types: [postType, service, location, agent, job, products],
 }
