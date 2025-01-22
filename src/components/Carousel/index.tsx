@@ -78,7 +78,7 @@ export function CarouselImage({ flash, essential, data }: CarouselImageProps) {
                                         <div className="flex flex-col w-full md:w-[33%] space-y-4">
                                             <div className="flex items-center">
                                                 <Image
-                                                    src={item.icon || "/assets/best-nike-1.svg"}
+                                                    src={item.icon || "/assets/best-Bendat-1.svg"}
                                                     alt={item.title || "alt"}
                                                     width={50}
                                                     height={50}
@@ -93,7 +93,7 @@ export function CarouselImage({ flash, essential, data }: CarouselImageProps) {
                                         </div>
                                         <div>
                                             <Image
-                                                src={item.heroIcon || "/assets/best-nike-2.svg"}
+                                                src={item.heroIcon || "/assets/best-Bendat-2.svg"}
                                                 alt={item.title || "alt"}
                                                 width={400}
                                                 height={400}
@@ -115,7 +115,7 @@ export function CarouselImage({ flash, essential, data }: CarouselImageProps) {
                                 <CardContent className="flex flex-col items-center justify-center text-black space-y-4" onClick={() => sendData(item)}>
                                     <div className="bg-primaryy h-68 flex items-center justify-center relative group w-full md:max-w-sm">
                                         <Image
-                                            src={item.image || "/assets/best-nike-2.svg"}
+                                            src={item.image || "/assets/best-Bendat-2.svg"}
                                             alt={item.title || "alt"}
                                             width={400}
                                             height={300}

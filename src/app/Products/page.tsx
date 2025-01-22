@@ -28,7 +28,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's shoe",
             image: '/assets/product-1.svg',
-            title: "Nike Air Force 1 Mid '07",
+            title: "Bendat Air Force 1 Mid '07",
             price: '8 695.00',
         },
         {
@@ -38,7 +38,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's shoe",
             image: '/assets/product-2.svg',
-            title: 'Nike Court Vision Low Next Nature',
+            title: 'Bendat Court Vision Low Next Nature',
             price: '4 995.00',
         },
         {
@@ -48,7 +48,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's shoe",
             image: '/assets/product-3.svg',
-            title: 'Nike Air Force 1 PLT.AF.ORM',
+            title: 'Bendat Air Force 1 PLT.AF.ORM',
             price: '8 695.00',
         },
         {
@@ -58,7 +58,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's shoe",
             image: '/assets/product-4.svg',
-            title: 'Nike Air Force 1 React',
+            title: 'Bendat Air Force 1 React',
             price: '13 295.00',
         },
         {
@@ -88,7 +88,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Shoes",
             image: '/assets/product-7.svg',
-            title: 'Nike Dunk Low Retro SE',
+            title: 'Bendat Dunk Low Retro SE',
             price: '9 695.00',
         },
         {
@@ -98,7 +98,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Graphic Fitness Top",
             image: '/assets/product-8.svg',
-            title: 'Nike Dri-FIT UV Hyverse',
+            title: 'Bendat Dri-FIT UV Hyverse',
             price: '2 495.00',
         },
         {
@@ -108,7 +108,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Shoes",
             image: '/assets/product-9.svg',
-            title: 'Nike Court Vision Low',
+            title: 'Bendat Court Vision Low',
             price: '5 695.00',
         },
         {
@@ -118,7 +118,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Fitness Top",
             image: '/assets/product-10.svg',
-            title: 'Nike Dri-FIT Ready',
+            title: 'Bendat Dri-FIT Ready',
             price: '2 495.00',
         },
         {
@@ -128,7 +128,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Women's Mid-Rise 18cm (approx.) Biker Shorts",
             image: '/assets/product-11.svg',
-            title: 'Nike One Leak Protection: Period',
+            title: 'Bendat One Leak Protection: Period',
             price: '3 395.00',
         },
         {
@@ -138,7 +138,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Older Kids' Shoe",
             image: '/assets/product-12.svg',
-            title: 'Nike Air Force 1 LV8 3',
+            title: 'Bendat Air Force 1 LV8 3',
             price: '7 495.00',
         },
         {
@@ -148,7 +148,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Women's Shoes",
             image: '/assets/product-13.svg',
-            title: 'Nike Blazer Low Platform',
+            title: 'Bendat Blazer Low Platform',
             price: '8 195.00',
         },
         {
@@ -158,7 +158,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Women's Shoe",
             image: '/assets/product-14.svg',
-            title: 'Nike Air Force 1 \'07',
+            title: 'Bendat Air Force 1 \'07',
             price: '8 195.00',
         },
         {
@@ -168,7 +168,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Tight-Fit Sleeveless Top",
             image: '/assets/product-15.svg',
-            title: 'Nike Pro Dri-FIT',
+            title: 'Bendat Pro Dri-FIT',
             price: '1 495.00',
         },
         {
@@ -178,7 +178,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Shoes",
             image: '/assets/product-16.svg',
-            title: 'Nike Dunk Low Retro',
+            title: 'Bendat Dunk Low Retro',
             price: '8 695.00',
         },
         {
@@ -188,7 +188,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Women's Shoes",
             image: '/assets/product-17.svg',
-            title: 'Nike Air Max SC',
+            title: 'Bendat Air Max SC',
             price: '5 995.00',
         },
         {
@@ -198,7 +198,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-18.svg',
-            title: 'Nike Dri-FIT UV Miler',
+            title: 'Bendat Dri-FIT UV Miler',
             price: '1 695.00',
         },
         {
@@ -208,7 +208,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-19.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -218,7 +218,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-20.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -228,7 +228,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-21.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -238,7 +238,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-22.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -248,7 +248,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-23.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -258,7 +258,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-24.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -268,7 +268,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-25.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -278,7 +278,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-26.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -288,7 +288,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-27.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -298,7 +298,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-28.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -308,7 +308,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-29.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -318,7 +318,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-30.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -328,7 +328,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-31.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -338,7 +338,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-32.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -348,7 +348,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-33.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -358,7 +358,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-34.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -368,7 +368,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-35.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -378,7 +378,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-36.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -388,7 +388,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-37.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -398,7 +398,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-38.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
         {
@@ -408,7 +408,7 @@ const Products = () => {
             desc: 'Turn style on its head with this crafted take on the Air Jordan 1 Mid...',
             category: "Men's Short-Sleeve Running Top",
             image: '/assets/product-39.svg',
-            title: 'Nike Air Max SYSTM',
+            title: 'Bendat Air Max SYSTM',
             price: '6 495.00',
         },
 

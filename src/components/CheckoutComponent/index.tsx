@@ -58,13 +58,13 @@ const CheckoutComponent = () => {
                         <input className="border p-2 w-full" type="text" placeholder="PAN" />
                         <small>Enter your PAN to enable payment with UPI, Net Banking or local card methods</small>
                         <div className="flex space-x-2">
-                            <input type="radio" /> <label>Save PAN details to Nike Profile</label>
+                            <input type="radio" /> <label>Save PAN details to Bendat Profile</label>
                         </div>
                     </div>
 
                     {/* Terms and Conditions */}
                     <div className="flex space-x-2">
-                        <input type="radio" /> <label>I have read and consent to eShopWorld processing my information in accordance with the Privacy Statement and Cookie Policy. eShopWorld is a trusted Nike partner.</label>
+                        <input type="radio" /> <label>I have read and consent to eShopWorld processing my information in accordance with the Privacy Statement and Cookie Policy. eShopWorld is a trusted Bendat partner.</label>
                     </div>
 
                     {/* Continue Button */}
@@ -114,18 +114,18 @@ const CheckoutComponent = () => {
                     <div>
                         <h1 className="font-bold py-2">Arrives Mon, 27 Mar - Wed, 12 Apr</h1>
                         <div className="flex">
-                            <Image src="/assets/gearup-1.svg" alt="nike" width={120} height={120} className="bg-transparent" />
+                            <Image src="/assets/gearup-1.svg" alt="Bendat" width={120} height={120} className="bg-transparent" />
                             <div className="ml-2">
-                                <p className="text-sm">Nike Dri-FIT ADV TechKnit Ultra Men&apos;s Short-Sleeve Running Top</p>
+                                <p className="text-sm">Bendat Dri-FIT ADV TechKnit Ultra Men&apos;s Short-Sleeve Running Top</p>
                                 <p className="text-gray-400 text-sm">Qty: 1</p>
                                 <p className="text-gray-400 text-sm">Size: L</p>
                                 <p className="text-gray-400 text-sm">₹ 3,895.00</p>
                             </div>
                         </div>
                         <div className="flex mt-4">
-                            <Image src="/assets/best-nike-3.svg" alt="nike" width={120} height={120} className="bg-transparent" />
+                            <Image src="/assets/best-Bendat-3.svg" alt="Bendat" width={120} height={120} className="bg-transparent" />
                             <div className="ml-2">
-                                <p className="text-sm">Nike Dri-FIT ADV TechKnit Ultra Men&apos;s Short-Sleeve Running Top</p>
+                                <p className="text-sm">Bendat Dri-FIT ADV TechKnit Ultra Men&apos;s Short-Sleeve Running Top</p>
                                 <p className="text-gray-400 text-sm">Qty: 1</p>
                                 <p className="text-gray-400 text-sm">Size: L</p>
                                 <p className="text-gray-400 text-sm">₹ 3,895.00</p>
@@ -142,7 +142,7 @@ const CheckoutComponent = () => {
                         <IoLocationOutline />
                         <p>India</p>
                     </span>
-                    <span className="text-gray-400 text-sm">© 2023 NIKE, Inc. All Rights Reserved</span>
+                    <span className="text-gray-400 text-sm">© 2023 Bendat, Inc. All Rights Reserved</span>
                 </div>
                 <ul className="flex flex-col md:flex-row justify-center md:space-x-5 space-y-2 md:space-y-0 text-sm items-center text-gray-400">
                     <li>Terms of Use</li>

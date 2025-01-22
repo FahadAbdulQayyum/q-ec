@@ -21,19 +21,19 @@ const Essential = () => {
                     data={[
                         {
                             icon: "/assets/essential-1.svg",
-                            title: "Nike Air Max Pulse",
+                            title: "Bendat Air Max Pulse",
                             category: "Men's",
                             price: "13 995",
                         },
                         {
                             icon: "/assets/essential-2.svg",
-                            title: "Nike Air Max Pulse",
+                            title: "Bendat Air Max Pulse",
                             category: "Women's",
                             price: "13 995",
                         },
                         {
                             icon: "/assets/essential-3.svg",
-                            title: "Nike Air Max Pulse",
+                            title: "Bendat Air Max Pulse",
                             category: "Kids'",
                             price: "13 995",
                         },

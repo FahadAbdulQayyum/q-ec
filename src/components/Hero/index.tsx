@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
                     Welcome to Our Store
                 </h1>
                 <p className="mt-4 text-lg md:text-xl lg:text-2xl">
-                    Explore the latest collection of Nike shoes
+                    Explore the latest collection of Bendat shoes
                 </p>
                 <button
                     className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm md:text-base lg:text-lg"

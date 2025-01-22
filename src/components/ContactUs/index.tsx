@@ -21,9 +21,9 @@ const ContactUsComponent = () => {
             desc: "five business days"
         },
         {
-            icon: "/assets/nikelocatioricon.svg",
+            icon: "/assets/Bendatlocatioricon.svg",
             contact: "STORE LOCATOR",
-            desc: "Find Nike retail stores near you"
+            desc: "Find Bendat retail stores near you"
         },
     ]
 
@@ -37,18 +37,18 @@ const ContactUsComponent = () => {
                         <CiSearch />
                     </span>
                 </span>
-                <h1 className="font-bold text-2xl items-start w-full">WHAT PAYMENT OPTIONS CAN I USE ON NIKE ORDERS?</h1>
-                <p>We want to make buying your favourite Nike shoes and gear online fast and easy, and we accept the following payment options:</p>
+                <h1 className="font-bold text-2xl items-start w-full">WHAT PAYMENT OPTIONS CAN I USE ON Bendat ORDERS?</h1>
+                <p>We want to make buying your favourite Bendat shoes and gear online fast and easy, and we accept the following payment options:</p>
                 <span className="pl-2">
                     <p>Visa, Mastercard, Diners Club, Discover, American Express, Visa Electron, Maestro</p>
                     <p>If you enter your PAN information at checkout, you&apos;ll be able to pay for your order with PayTM or a local credit or debit card.</p>
                     <p>Apple Pay</p>
                 </span>
                 <span>
-                    <p><span className="font-bold text-black border-b-2">Nike Members</span> can store multiple debit or credit cards in their profile for faster checkout. If you&apos;re not already a Member, <span className="font-bold text-black border-b-2">join us</span> today.</p>
+                    <p><span className="font-bold text-black border-b-2">Bendat Members</span> can store multiple debit or credit cards in their profile for faster checkout. If you&apos;re not already a Member, <span className="font-bold text-black border-b-2">join us</span> today.</p>
                     <span className="flex space-x-4 my-4">
                         <button className="bg-black rounded-full p-2 px-4 text-white">Join Us</button>
-                        <button className="bg-black rounded-full p-2 px-4 text-white">Shop Nike</button>
+                        <button className="bg-black rounded-full p-2 px-4 text-white">Shop Bendat</button>
                     </span>
                 </span>
                 <span>
@@ -59,7 +59,7 @@ const ContactUsComponent = () => {
                 </span>
                 <span className="w-full">
                     <h1 className="font-bold text-base">Can I pay for my order with multiple methods?</h1>
-                    <p>No, payment for Nike orders can&apos;t be split between multiple payment methods.</p>
+                    <p>No, payment for Bendat orders can&apos;t be split between multiple payment methods.</p>
                 </span>
                 <span className="w-full">
                     <h1 className="font-bold text-base">What payment method is accepted for SNKRS orders?</h1>
@@ -67,7 +67,7 @@ const ContactUsComponent = () => {
                 </span>
                 <span>
                     <h1 className="font-bold text-base">Why don&apos;t I see Apple Pay as an option?</h1>
-                    <p>To see Apple Pay as an option in the Nike App or on Nike.com, you&apos;ll need to use a compatible Apple device running the latest OS, be signed in to your iCloud account and have a supported card in your Wallet. Additionally, you&apos;ll need to use Safari to use Apple Pay on Nike.com.</p>
+                    <p>To see Apple Pay as an option in the Bendat App or on Bendat.com, you&apos;ll need to use a compatible Apple device running the latest OS, be signed in to your iCloud account and have a supported card in your Wallet. Additionally, you&apos;ll need to use Safari to use Apple Pay on Bendat.com.</p>
                 </span>
                 <span className="w-full">
                     <p>Was this answer helpful?</p>
@@ -77,8 +77,8 @@ const ContactUsComponent = () => {
                     </span>
                     <h1 className="uppercase my-4 text-gray-400">Related</h1>
                     <span>
-                        <p className="uppercase my-2 ml-4 font-bold underline">WHAT ARE NIKE&apos;S DELIVERY OPTIONS?</p>
-                        <p className="uppercase my-2 ml-4 font-bold underline">HOW DO I GET FREE DELIVERY ON NIKE ORDERS?</p>
+                        <p className="uppercase my-2 ml-4 font-bold underline">WHAT ARE Bendat&apos;S DELIVERY OPTIONS?</p>
+                        <p className="uppercase my-2 ml-4 font-bold underline">HOW DO I GET FREE DELIVERY ON Bendat ORDERS?</p>
                     </span>
                 </span>
             </section>

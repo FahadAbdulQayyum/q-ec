@@ -23,11 +23,11 @@ const Footer = () => {
                         <li>Delivery</li>
                         <li>Returns</li>
                         <li>Payment Options</li>
-                        <li>Contact Us On Nike.com Inquiries</li>
+                        <li>Contact Us On Bendat.com Inquiries</li>
                         <li>Contact Us On All Other Inquiries</li>
                     </ul>
                     <ul className="space-y-2 text-sm text-gray-400">
-                        <h1 className="font-bold text-white uppercase">About Nike</h1>
+                        <h1 className="font-bold text-white uppercase">About Bendat</h1>
                         <li>News</li>
                         <li>Careers</li>
                         <li>Investors</li>
@@ -50,13 +50,13 @@ const Footer = () => {
                         <IoLocationOutline />
                         <p>India</p>
                     </span>
-                    <span>© 2023 Nike, Inc. All Rights Reserved</span>
+                    <span>© 2023 Bendat, Inc. All Rights Reserved</span>
                 </div>
                 <ul className="flex justify-center space-x-5 text-sm">
                     <li>Guides</li>
                     <li>Terms of Sale</li>
                     <li>Terms of Use</li>
-                    <li>Nike Privacy Policy</li>
+                    <li>Bendat Privacy Policy</li>
                 </ul>
             </div>
         </div>

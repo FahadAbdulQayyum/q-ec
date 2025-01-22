@@ -7,7 +7,7 @@ const FirstLook = () => {
                 <p className="text-sm font-bold">First Look</p>
             </div>
             <div>
-                <h1 className="text-3xl md:text-4xl font-bold uppercase text-center">Nike Air Max Pulse</h1>
+                <h1 className="text-3xl md:text-4xl font-bold uppercase text-center">Bendat Air Max Pulse</h1>
             </div>
             <div className="space-y-2 py-5 font-medium">
                 <p className="text-sm text-center">

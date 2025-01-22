@@ -9,8 +9,8 @@ const UpperBanner = () => {
             {/* Left Portion */}
             <div className="left-portion flex justify-center md:justify-start mb-2 md:mb-0">
                 {/* Use the Image component if working with Next.js */}
-                {/* <img src="/assets/nike-logo.svg" alt="Nike logo" className="w-8 h-8" /> */}
-                <img src="/assets/salon.png" alt="Nike logo" className="w-10 h-10" />
+                {/* <img src="/assets/Bendat-logo.svg" alt="Bendat logo" className="w-8 h-8" /> */}
+                <img src="/assets/salon.png" alt="Bendat logo" className="w-10 h-10" />
                 {/* <span className="text-sm font-medium">Free Shipping for Members!</span> */}
 
             </div>
@@ -28,7 +28,7 @@ const UpperBanner = () => {
                         Help
                     </li>
                     <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
-                        <Link href="/Sign/up" aria-label="Join Nike Membership" className="hover:underline">
+                        <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
                             Join Us
                         </Link>
                     </li>

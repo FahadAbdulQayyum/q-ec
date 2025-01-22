@@ -8,11 +8,11 @@ interface SignProps {
 const Sign: React.FC<SignProps> = ({ signup }) => {
     return (
         <div className="flex flex-col justify-center items-center space-y-5 p-standardSize">
-            <Image src="/assets/nike-logo-1.svg" alt="logo" width={50} height={50} />
-            <h1 className={`font-bold text-xl text-center ${!signup ? 'w-[21%]' : 'w-full'}`}>{signup ? "BECOME A NIKE MEMBER" : "YOUR ACCOUNT FOR EVERYTHING NIKE"}</h1>
+            <Image src="/assets/Bendat-logo-1.svg" alt="logo" width={50} height={50} />
+            <h1 className={`font-bold text-xl text-center ${!signup ? 'w-[21%]' : 'w-full'}`}>{signup ? "BECOME A Bendat MEMBER" : "YOUR ACCOUNT FOR EVERYTHING Bendat"}</h1>
             {
                 signup && <p className="text-sm text-gray-400 text-center max-w-xs mx-auto">
-                    Create your Nike Member profile and get first access to the very best of Nike products, inspiration, and community.
+                    Create your Bendat Member profile and get first access to the very best of Bendat products, inspiration, and community.
                 </p>
             }
             <input className="border p-2 w-full max-w-md" type="email" placeholder="Email address" />
@@ -25,7 +25,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                         <input className="border p-2 w-full max-w-md text-gray-400" type="text" placeholder="Date of Birth" />
 
                         <p className="text-sm text-gray-400 text-center w-full max-w-md">
-                            Get a Nike Member Reward every year on your Birthday.
+                            Get a Bendat Member Reward every year on your Birthday.
                         </p>
                         <select className="border p-2 w-full max-w-md text-gray-400">
                             <option value="in">India</option>
@@ -62,13 +62,13 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     <div className="flex w-full max-w-md text-sm text-gray-400">
                         <input type="checkbox" id="emailUpdates" />
                         <label htmlFor="emailUpdates" className="ml-2">
-                            Sign up for emails to get updates from Nike on products, offers, and your Member benefits
+                            Sign up for emails to get updates from Bendat on products, offers, and your Member benefits
                         </label>
                     </div>
                 )
             }
             <p className="text-sm text-gray-400 text-center py-2 max-w-md w-[40%]">
-                {"By " + (signup ? "creating an account" : `logging in`)}, you agree to Nike&apos;s{" "}
+                {"By " + (signup ? "creating an account" : `logging in`)}, you agree to Bendat&apos;s{" "}
                 <span className="border-b">Privacy Policy</span> and <span className="border-b">Terms of Use</span>.
             </p>
             <button className="bg-black w-full max-w-md text-white py-2 rounded uppercase">{signup ? "Join Us" : "Sign in"}</button>

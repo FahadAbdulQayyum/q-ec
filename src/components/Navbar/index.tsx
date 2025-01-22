@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center px-2 text-black bg-white border-b-2 py-2 md:px-standardSize sm:px-4">
             {/* Logo Section */}
             <div className="logo">
-                {/* <Image src="/assets/nike-logo-1.svg" alt="Nike Logo" width={80} height={80} /> */}
+                {/* <Image src="/assets/Bendat-logo-1.svg" alt="Bendat Logo" width={80} height={80} /> */}
                 <Image src="/assets/bg.png" alt="bendat Logo" width={80} height={80} />
             </div>
 
