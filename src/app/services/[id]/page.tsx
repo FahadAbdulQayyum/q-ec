@@ -88,16 +88,7 @@ const FetchingSanityDataById = () => {
                 *[_id in path("${dataString}")]
             `);
       let { services_list } = data[0]
-      console.log('data....', data);
-      console.log('...data...62...', services_list)
-      // console.log('...data...62...', data.filter(v => v._id === id))
       if (dataString !== null) {
-        // const filteredData = data.filter(service =>
-        //   service.city_available.split(',').some(city => address.toLowerCase().includes(city.trim().toLowerCase()))
-        // );
-
-
-        // const filteredData: dataTypeInnerOuter[] = services_list
 
         const filteredData: dataTypeInnerOuter[] = Array.isArray(services_list)
           ? services_list.map((service: dataTypeInner) => ({
