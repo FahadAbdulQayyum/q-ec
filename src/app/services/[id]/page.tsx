@@ -39,35 +39,40 @@ const FetchingSanityDataById = () => {
 
   useEffect(() => {
     const fetchFunction = async () => {
-      const data = await client.fetch(`
-                *[_id in path("${dataString}")]
-            `);
-      const { services_list } = data[0];
+      try {
+        const data = await client.fetch(`*[_id in path("${dataString}")]`);
+        const { services_list } = data[0] || {};
 
-      const filteredData = Array.isArray(services_list)
-        ? services_list.map(service => ({
-          _id: service._key, // Adjust if necessary
-          name: service.name,
-          variation: service.variation,
-          city_available: service.city_available,
-          price: service.price,
-          currently_offered: service.currently_offered,
-          pic: service.pic,
-        }))
-        : [
-          {
-            _id: services_list._id, // Adjust if necessary
-            name: services_list.name,
-            variation: services_list.variation,
-            city_available: services_list.city_available,
-            price: services_list.price,
-            currently_offered: services_list.currently_offered,
-            pic: services_list.pic,
-          },
-        ];
+        const filteredData = Array.isArray(services_list)
+          ? services_list.map(service => ({
+            _id: service._key,
+            name: service.name,
+            variation: service.variation,
+            city_available: service.city_available,
+            price: service.price,
+            currently_offered: service.currently_offered,
+            pic: service.pic,
+          }))
+          : services_list
+            ? [
+              {
+                _id: services_list._id,
+                name: services_list.name,
+                variation: services_list.variation,
+                city_available: services_list.city_available,
+                price: services_list.price,
+                currently_offered: services_list.currently_offered,
+                pic: services_list.pic,
+              },
+            ]
+            : [];
 
-      setFetchedData(filteredData);
-      setLoading(false);
+        setFetchedData(filteredData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchFunction();
@@ -92,6 +97,14 @@ const FetchingSanityDataById = () => {
     return (
       <div className="flex justify-center items-center h-screen relative">
         <div className="loader border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (!fetchedData || fetchedData.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <h1 className="text-2xl font-bold text-gray-500">No Data Found</h1>
       </div>
     );
   }
@@ -160,19 +173,4 @@ const FetchingSanityDataById = () => {
     </div>
   );
 };
-
-const ServicesPage = () => {
-  return (
-    <Suspense
-      fallback={
-        <div className="flex justify-center items-center h-screen relative">
-          <div className="loader border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>
-        </div>
-      }
-    >
-      <FetchingSanityDataById />
-    </Suspense>
-  );
-};
-
-export default ServicesPage;
+export default FetchingSanityDataById;
