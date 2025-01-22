@@ -22,7 +22,7 @@ type dataType = {
       _ref: string;
     };
   };
-  servicesList: {
+  services_list: {
     _id: string;
     name: string;
     variation: string;
@@ -87,8 +87,9 @@ const FetchingSanityDataById = () => {
       const data: dataType[] = await client.fetch(`
                 *[_id in path("${dataString}")]
             `);
-      let { servicesList } = data[0]
-      console.log('...data...62...', servicesList)
+      let { services_list } = data[0]
+      console.log('data....', data);
+      console.log('...data...62...', services_list)
       // console.log('...data...62...', data.filter(v => v._id === id))
       if (dataString !== null) {
         // const filteredData = data.filter(service =>
@@ -96,10 +97,10 @@ const FetchingSanityDataById = () => {
         // );
 
 
-        // const filteredData: dataTypeInnerOuter[] = servicesList
+        // const filteredData: dataTypeInnerOuter[] = services_list
 
-        const filteredData: dataTypeInnerOuter[] = Array.isArray(servicesList)
-          ? servicesList.map((service: dataTypeInner) => ({
+        const filteredData: dataTypeInnerOuter[] = Array.isArray(services_list)
+          ? services_list.map((service: dataTypeInner) => ({
             _id: service._key, // Adjust if necessary
             name: service.name,
             variation: service.variation,
@@ -110,20 +111,20 @@ const FetchingSanityDataById = () => {
           }))
           : [
             {
-              _id: servicesList._id, // Adjust if necessary
-              name: servicesList.name,
-              variation: servicesList.variation,
-              city_available: servicesList.city_available,
-              price: servicesList.price,
-              currently_offered: servicesList.currently_offered,
-              pic: servicesList.pic
+              _id: services_list._id, // Adjust if necessary
+              name: services_list.name,
+              variation: services_list.variation,
+              city_available: services_list.city_available,
+              price: services_list.price,
+              currently_offered: services_list.currently_offered,
+              pic: services_list.pic
             }
           ];
 
         setFetchedData(filteredData);
       } else {
-        const servicesListData: dataTypeInnerOuter[] = Array.isArray(servicesList)
-          ? servicesList.map((service: dataTypeInner) => ({
+        const services_listData: dataTypeInnerOuter[] = Array.isArray(services_list)
+          ? services_list.map((service: dataTypeInner) => ({
             _id: service._key, // Adjust if necessary
             name: service.name,
             variation: service.variation,
@@ -134,17 +135,17 @@ const FetchingSanityDataById = () => {
           }))
           : [
             {
-              _id: servicesList._id, // Adjust if necessary
-              name: servicesList.name,
-              variation: servicesList.variation,
-              city_available: servicesList.city_available,
-              price: servicesList.price,
-              currently_offered: servicesList.currently_offered,
-              pic: servicesList.pic
+              _id: services_list._id, // Adjust if necessary
+              name: services_list.name,
+              variation: services_list.variation,
+              city_available: services_list.city_available,
+              price: services_list.price,
+              currently_offered: services_list.currently_offered,
+              pic: services_list.pic
             }
           ];
-        setFetchedData(servicesListData);
-        // setFetchedData(servicesList);
+        setFetchedData(services_listData);
+        // setFetchedData(services_list);
       }
       setLoading(false);
     };
@@ -252,7 +253,7 @@ export default ServicesPage;
 //       _ref: string;
 //     };
 //   };
-//   servicesList: {
+//   services_list: {
 //     _id: string;
 //     name: string;
 //     variation: string;
@@ -284,7 +285,7 @@ export default ServicesPage;
 //     const fetchFunction = async () => {
 //       const data: dataType[] = await client.fetch(`
 //                 *[_type=='service']{
-//                     servicesList,
+//                     services_list,
 //                     }
 //             `);
 //       console.log('...data...62...', data)

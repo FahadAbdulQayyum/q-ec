@@ -4,7 +4,7 @@ export default {
     title: 'Services',
     fields: [
         {
-            name: 'servicesList',
+            name: 'services_list',
             type: 'array',
             title: 'Services List',
             of: [
