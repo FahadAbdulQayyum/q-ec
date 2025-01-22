@@ -24,16 +24,6 @@ const Navbar: React.FC = () => {
 
     // const searchHandler = async (value: any) => {
     const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        // // const searchHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        // // await dispatch(fetchServices())
-        // // console.log('value....', value)
-
-        // setQuery(e.target.value);
-
-        // dispatch(searchService(e.target.value))
-        // // if (e.target.value === '') {
-        // //     await dispatch(fetchServices())
-        // // }
 
 
         const value = e.target.value;
@@ -42,8 +32,6 @@ const Navbar: React.FC = () => {
         if (value.trim() === "") {
             // If search field is empty, reset to all services
             dispatch(fetchServices());
-            // dispatch(searchService(value));
-            // console.log('...Daeeee....')
         } else {
             // Otherwise, filter the services based on the input
             dispatch(searchService(value));
