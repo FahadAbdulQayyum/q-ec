@@ -10,7 +10,7 @@ const CheckoutComponent = () => {
                 <div className="w-full lg:w-[70%] ml-0 lg:ml-[30%] space-y-4">
                     <h1 className="font-bold text-xl">How would you like to get your order?</h1>
                     <p>
-                        Customs regulation for India require a copy of the recipient&apos;s KYC. The address on the KYC needs to match the shipping address.
+                        Customs regulation for Pakistan require a copy of the recipient&apos;s KYC. The address on the KYC needs to match the shipping address.
                         Our courier will contact you via SMS/email to obtain a copy of your KYC. The KYC will be stored securely and used solely for the purpose
                         of clearing customs (including sharing it with customs officials) for all orders and returns. If your KYC does not match your shipping
                         address, please click the link for more information. Learn More
@@ -34,7 +34,7 @@ const CheckoutComponent = () => {
                         </div>
                         <div className="flex space-x-2 w-full">
                             <input className="border p-2 w-1/2" type="text" placeholder="State/Territory" />
-                            <input className="border p-2 w-1/2" type="text" placeholder="India" />
+                            <input className="border p-2 w-1/2" type="text" placeholder="Pakistan" />
                         </div>
 
                         <div className="flex space-x-2">
@@ -140,7 +140,7 @@ const CheckoutComponent = () => {
                 <div className="flex flex-col justify-center md:flex-row items-center md:space-x-5 py-2 md:py-0">
                     <span className="flex items-center space-x-2">
                         <IoLocationOutline />
-                        <p>India</p>
+                        <p>Karachi, Pakistan</p>
                     </span>
                     <span className="text-gray-400 text-sm">© 2023 Bendat, Inc. All Rights Reserved</span>
                 </div>

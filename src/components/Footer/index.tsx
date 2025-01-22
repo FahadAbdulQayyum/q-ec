@@ -48,9 +48,9 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row items-center md:space-x-5">
                     <span className="flex items-center space-x-2">
                         <IoLocationOutline />
-                        <p>India</p>
+                        <p>Karachi, Pakistan</p>
                     </span>
-                    <span>© 2023 Bendat, Inc. All Rights Reserved</span>
+                    <span>© 2025 Bendat, Inc. All Rights Reserved</span>
                 </div>
                 <ul className="flex justify-center space-x-5 text-sm">
                     <li>Guides</li>
