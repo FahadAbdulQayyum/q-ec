@@ -3,10 +3,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
-// import { client } from '@/sanity/lib/client';
 import { useSearchParams } from 'next/navigation'; // Change this import
-// import { useDispatch } from 'react-redux';
-// import { pushCart } from '@/components/lib/features/cart/cartSlice';
 
 import { useAppDispatch } from '@/components/lib/hooks'
 
