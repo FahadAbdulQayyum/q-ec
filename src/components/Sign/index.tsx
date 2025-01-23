@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from 'react';
 
+import { useToast } from "@/hooks/use-toast"
+
 interface SignProps {
     signup: boolean;
 }
@@ -19,6 +21,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
     const genderRef = useRef<HTMLInputElement>(null);
     const signUpRef = useRef<HTMLInputElement>(null);
     const keepMeRef = useRef<HTMLInputElement>(null);
+
+    const { toast } = useToast()
 
     const sendToForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -43,6 +47,13 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         if (dobRef.current) dobRef.current.value = "";
         if (genderRef.current) genderRef.current.value = "";
         if (countryRef.current) countryRef.current.value = "";
+
+        toast(
+            {
+                variant: "destructive",
+                title: "Invalid",
+                description: "Password is not matching",
+            })
     }
 
     const specifyGender = (gender: string) => {
