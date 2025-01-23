@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 interface SignProps {
     signup: boolean;
 }
 
 const Sign: React.FC<SignProps> = ({ signup }) => {
+
+    const [gender, setGender] = useState<string>('male');
 
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
@@ -43,6 +45,11 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         if (countryRef.current) countryRef.current.value = "";
     }
 
+    const specifyGender = (gender: string) => {
+        console.log('gender...', gender);
+        setGender(gender)
+    }
+
     return (
         <form onSubmit={sendToForm}>
             <div className="flex flex-col justify-center items-center space-y-5 p-standardSize">
@@ -72,13 +79,13 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                                 <option value="usa">USA</option>
                             </select>
                             <div className="flex justify-between w-full max-w-md space-x-4">
-                                <label className="flex items-center space-x-2 border w-1/2 py-2 ">
-                                    <input type="radio" name="gender" value="male" className="hidden" ref={genderRef} />
-                                    <span className="text-sm text-gray-400 w-full text-center">Male</span>
+                                <label className={`flex items-center space-x-2 border w-1/2 py-2 hover:bg-gray-300 hover:text-white ${gender === 'male' ? 'bg-black hover:bg-black text-white' : ''}`}>
+                                    {/* <input type="radio" name="gender" value="male" className="hidden" ref={genderRef} /> */}
+                                    <span className="text-sm text-gray-400 w-full text-center hover:text-white" onClick={() => specifyGender("male")}>Male</span>
                                 </label>
-                                <label className="flex items-center space-x-2 border w-1/2 py-2 ">
-                                    <input type="radio" name="gender" value="female" className="hidden" ref={genderRef} />
-                                    <span className="text-sm text-gray-400 w-full text-center">Female</span>
+                                <label className={`flex items-center space-x-2 border w-1/2 py-2 hover:bg-gray-300 hover:text-white ${gender === 'female' ? 'bg-black hover:bg-black text-white' : ''}`}>
+                                    {/* <input type="radio" name="gender" value="female" className="hidden" ref={genderRef} /> */}
+                                    <span className="text-sm text-gray-400 w-full text-center hover:text-white" onClick={() => specifyGender("female")}>Female</span>
                                 </label>
                             </div>
                         </>
