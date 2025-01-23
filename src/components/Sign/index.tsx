@@ -32,9 +32,10 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
             password: passwordRef.current?.value || "",
             firstName: firstNameRef.current?.value || "",
             lastName: lastNameRef.current?.value || "",
+            country: countryRef.current?.value || "",
             dob: dobRef.current?.value || "",
             gender: genderRef.current?.value || "",
-            country: countryRef.current?.value || "",
+            signUp: signUpRef.current?.checked || "",
         };
 
         console.log("Form Data Submitted:", formData);
@@ -48,12 +49,14 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         if (genderRef.current) genderRef.current.value = "";
         if (countryRef.current) countryRef.current.value = "";
 
-        toast(
-            {
-                variant: "destructive",
-                title: "Invalid",
-                description: "Password is not matching",
-            })
+        if (!formData.email && !formData.password && !formData.firstName && !formData.lastName && !formData.dob && !formData.gender && !formData.country) {
+            toast(
+                {
+                    variant: "destructive",
+                    title: "Invalid!",
+                    description: "You did not provide all information!",
+                })
+        }
     }
 
     const specifyGender = (gender: string) => {
