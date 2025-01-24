@@ -41,15 +41,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
 
         console.log("Form Data Submitted:", formData);
 
-        // Optional: Clear input fields
-        if (emailRef.current) emailRef.current.value = "";
-        if (passwordRef.current) passwordRef.current.value = "";
-        if (firstNameRef.current) firstNameRef.current.value = "";
-        if (lastNameRef.current) lastNameRef.current.value = "";
-        if (dobRef.current) dobRef.current.value = "";
-        if (genderRef.current) genderRef.current.value = "";
-        if (countryRef.current) countryRef.current.value = "";
-
         if (!formData.email && !formData.password && !formData.firstName && !formData.lastName && !formData.dob && !formData.gender && !formData.country) {
             toast(
                 {
@@ -71,7 +62,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     return;
                 }
                 const data = await response.json();
-                console.log('Success:::', data);
                 if (data.details) {
                     toast(
                         {
@@ -79,6 +69,21 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                             title: "Invalid!",
                             description: data.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
                         })
+                } else if (data.success) {
+                    toast(
+                        {
+                            title: "Success!",
+                            description: "Signed Up Successfully!"
+                        })
+
+                    // Optional: Clear input fields
+                    if (emailRef.current) emailRef.current.value = "";
+                    if (passwordRef.current) passwordRef.current.value = "";
+                    if (firstNameRef.current) firstNameRef.current.value = "";
+                    if (lastNameRef.current) lastNameRef.current.value = "";
+                    if (dobRef.current) dobRef.current.value = "";
+                    if (genderRef.current) genderRef.current.value = "";
+                    if (countryRef.current) countryRef.current.value = "";
                 }
             } catch (err) {
                 console.error('Fetch error:', err)

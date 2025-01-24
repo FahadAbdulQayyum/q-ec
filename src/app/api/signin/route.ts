@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       const body = await request.json();
       const validatedData = FormDataSchema.parse(body);
       console.log('...validatedData...', validatedData);
-      return NextResponse.json({ message: `You sent: ${validatedData}` });
+      return NextResponse.json({ success: 1, data: validatedData });
     }catch(err){
       if(err instanceof z.ZodError){
         return NextResponse.json({error: 'Validation faild', details: err.errors, status: 400});
