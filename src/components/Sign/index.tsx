@@ -59,9 +59,30 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 })
         }
         if (signup) {
-            const data = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
-            const result = data.json();
-            console.log('...result...', result);
+            try {
+                const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    console.error('Error:', error.error || 'Something went wrong');
+                    if (error.details) {
+                        console.error('Validation Errors:', error.details);
+                    }
+                    return;
+                }
+                const data = await response.json();
+                console.log('Success:::', data);
+                if (data.details) {
+                    toast(
+                        {
+                            variant: "destructive",
+                            title: "Invalid!",
+                            description: data.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
+                        })
+                }
+            } catch (err) {
+                console.error('Fetch error:', err)
+            }
         }
     }
 
