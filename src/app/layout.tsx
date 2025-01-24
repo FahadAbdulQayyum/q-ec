@@ -10,6 +10,10 @@ import CartPopup from "@/components/cartPopup";
 
 import { Toaster } from "@/components/ui/toaster"
 
+// import dynamic from 'next/dynamic';
+
+// const UpperBanner = dynamic(() => import('@/components/UpperBanner'), { ssr: false });
+
 // const myInter = Inter({
 const myfont = Inter({
   subsets: ["latin"],
