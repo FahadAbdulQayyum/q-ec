@@ -6,5 +6,6 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const body = await request.json();
-    return NextResponse.json({ message: `You sent: ${body.data}` });
+    console.log('...body...', body);
+    return NextResponse.json({ message: `You sent: ${body}` });
 }

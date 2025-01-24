@@ -24,7 +24,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
 
     const { toast } = useToast()
 
-    const sendToForm = (e: React.FormEvent<HTMLFormElement>) => {
+    const sendToForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Access input field values using .current.value
         const formData = {
@@ -34,8 +34,9 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
             lastName: lastNameRef.current?.value || "",
             country: countryRef.current?.value || "",
             dob: dobRef.current?.value || "",
-            gender: genderRef.current?.value || "",
+            // gender: genderRef.current?.value || "",
             signUp: signUpRef.current?.checked || "",
+            gender
         };
 
         console.log("Form Data Submitted:", formData);
@@ -56,6 +57,11 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     title: "Invalid!",
                     description: "You did not provide all information!",
                 })
+        }
+        if (signup) {
+            const data = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+            const result = data.json();
+            console.log('...result...', result);
         }
     }
 
