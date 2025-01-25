@@ -4,6 +4,10 @@ import { useRef, useState } from 'react';
 
 import { useToast } from "@/hooks/use-toast"
 
+import { Loader2 } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+
 interface SignProps {
     signup: boolean;
 }
@@ -11,6 +15,7 @@ interface SignProps {
 const Sign: React.FC<SignProps> = ({ signup }) => {
 
     const [gender, setGender] = useState<string>('male');
+    const [loading, setLoading] = useState<boolean>(false);
 
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
@@ -25,6 +30,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
     const { toast } = useToast()
 
     const sendToForm = async (e: React.FormEvent<HTMLFormElement>) => {
+        setLoading(true);
         e.preventDefault();
         // Access input field values using .current.value
         const formData = {
@@ -34,8 +40,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
             lastName: lastNameRef.current?.value || "",
             country: countryRef.current?.value || "",
             dob: dobRef.current?.value || "",
-            // gender: genderRef.current?.value || "",
-            signUp: signUpRef.current?.checked || "",
+            signUp: signUpRef.current?.checked || false,
             gender
         };
 
@@ -52,17 +57,27 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         if (signup) {
             try {
                 const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+                console.log('...response....', response);
 
                 if (!response.ok) {
                     const error = await response.json();
                     console.error('Error:', error.error || 'Something went wrong');
                     if (error.details) {
                         console.error('Validation Errors:', error.details);
+                        toast(
+                            {
+                                variant: "destructive",
+                                title: "Invalid!",
+                                description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
+                            })
+                        setLoading(false);
                     }
                     return;
                 }
                 const data = await response.json();
+                console.log('...data....', data);
                 if (data.details) {
+                    console.log('...data.details...');
                     toast(
                         {
                             variant: "destructive",
@@ -85,6 +100,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     if (genderRef.current) genderRef.current.value = "";
                     if (countryRef.current) countryRef.current.value = "";
                 }
+                setLoading(false);
             } catch (err) {
                 console.error('Fetch error:', err)
             }
@@ -162,10 +178,19 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     {"By " + (signup ? "creating an account" : `logging in`)}, you agree to Bendat&apos;s{" "}
                     <span className="border-b">Privacy Policy</span> and <span className="border-b">Terms of Use</span>.
                 </p>
-                <button
-                    className="bg-black w-full max-w-md text-white py-2 rounded uppercase"
-                // onClick={(e) => sendToForm(e)}
-                >{signup ? "Join Us" : "Sign in"}</button>
+                {loading ?
+                    <Button disabled
+                        className="bg-black w-full max-w-md text-white py-3 rounded uppercase"
+                    >
+                        <Loader2
+                            className="animate-spin"
+                        />
+                        Please wait
+                    </Button>
+                    : <button
+                        className="bg-black w-full max-w-md text-white py-2 rounded uppercase"
+                    // onClick={(e) => sendToForm(e)}
+                    >{signup ? "Join Us" : "Sign in"}</button>}
                 <div className="flex text-sm text-gray-400">
                     <p>{signup ? "Already a Member?" : "Not a Member?"}</p>
                     <Link href={signup ? '/Sign/in' : '/Sign/up'} className="ml-2 border-b border-black text-black">{signup ? "Sign In." : "Join Us."}</Link>
