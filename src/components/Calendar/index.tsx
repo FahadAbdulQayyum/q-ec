@@ -1,67 +1,52 @@
-// "use client"
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
-// import React, { useState } from 'react';
-// import moment from 'moment';
+const Calendar: React.FC = () => {
+    const hours = Array.from({ length: 16 }, (_, i) => 9 + i); // Hours from 9 AM to 12 AM
 
-// interface CalendarProps {
-//     selected: number;  // Unix timestamp of selected date
-//     onSelect: (date: number) => void;
-//     timeZoneName: string;
-// }
+    const getMonthDays = () => {
+        const days = [];
+        for (let day = 1; day <= 31; day++) {
+            days.push(day);
+        }
+        return days;
+    };
 
-// const Calendar: React.FC<CalendarProps> = ({ selected, onSelect, timeZoneName }) => {
-//     const [currentDate, setCurrentDate] = useState(moment(selected).tz(timeZoneName));
+    return (
+        <div className="grid grid-cols-12 gap-4 p-4">
+            {/* Calendar Section */}
+            <div className="col-span-8 grid grid-cols-7 gap-2">
+                {getMonthDays().map((day) => (
+                    <motion.div
+                        key={day}
+                        className="border border-gray-300 rounded-lg p-4 flex items-center justify-center"
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        {day}
+                    </motion.div>
+                ))}
+            </div>
 
-//     const goToPreviousMonth = () => {
-//         setCurrentDate(currentDate.clone().subtract(1, 'month'));
-//     };
+            {/* Time Section */}
+            <div className="col-span-4">
+                <Card>
+                    <CardContent>
+                        <div className="flex flex-col gap-2">
+                            {hours.map((hour) => (
+                                <div
+                                    key={hour}
+                                    className="border-b border-gray-300 pb-2 pt-2 text-center"
+                                >
+                                    {hour % 12 || 12} {hour >= 12 ? "PM" : "AM"}
+                                </div>
+                            ))}
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    );
+};
 
-//     const goToNextMonth = () => {
-//         setCurrentDate(currentDate.clone().add(1, 'month'));
-//     };
-
-//     const renderDayNames = () => {
-//         return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-//             <div key={day} className="day-name">
-//                 {day}
-//             </div>
-//         ));
-//     };
-
-//     const renderDays = () => {
-//         const startOfMonth = currentDate.clone().startOf('month').startOf('week');
-//         const endOfMonth = currentDate.clone().endOf('month').endOf('week');
-//         const days = [];
-//         let day = startOfMonth.clone();
-
-//         while (day.isBefore(endOfMonth, 'day')) {
-//             days.push(
-//                 <div
-//                     key={day.toString()}
-//                     className={`day ${day.month() === currentDate.month() ? '' : 'other-month'} ${day.isSame(moment(selected), 'day') ? 'selected' : ''
-//                         }`}
-//                     onClick={() => onSelect(day.unix())}
-//                 >
-//                     {day.date()}
-//                 </div>
-//             );
-//             day.add(1, 'day');
-//         }
-
-//         return days;
-//     };
-
-//     return (
-//         <div className="calendar">
-//             <div className="header">
-//                 <button onClick={goToPreviousMonth}>Prev</button>
-//                 <div>{currentDate.format('MMMM YYYY')}</div>
-//                 <button onClick={goToNextMonth}>Next</button>
-//             </div>
-//             <div className="days">{renderDayNames()}</div>
-//             <div className="dates">{renderDays()}</div>
-//         </div>
-//     );
-// };
-
-// export default Calendar;
+export default Calendar;
