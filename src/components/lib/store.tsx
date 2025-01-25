@@ -5,6 +5,8 @@ import cartReducer from './features/cart/cartSlice';
 import productReducer from './features/product/productSlice';
 import serviceReducer from './features/service/serviceSlice';
 import locationReducer from './features/location/locationSlice';
+import dynamicApiCallReducer from './features/dynamicApiCall/dynamicAPISlice';
+
 
 export const makeStore = () => {
     return configureStore({
@@ -14,6 +16,8 @@ export const makeStore = () => {
             location: locationReducer, // Ensure `counter` is registered here
             product: productReducer, // Ensure `counter` is registered here
             service: serviceReducer, // Ensure `counter` is registered here
+            dynamicApiCall: dynamicApiCallReducer,
+
         }
     })
 }
