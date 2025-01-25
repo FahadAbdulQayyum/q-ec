@@ -47,6 +47,11 @@ const CartPopup = () => {
                 <div className="mt-4">
                     <strong>Total Price: ${totalPrice}</strong>
                 </div>
+                <button
+                    className="bg-gray-200"
+                >
+                    Got To Checkout
+                </button>
             </div>
         }
     </>

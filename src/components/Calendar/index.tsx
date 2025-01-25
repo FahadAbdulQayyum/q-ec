@@ -13,8 +13,16 @@ const Calendar: React.FC = () => {
         return days;
     };
 
+    const dateSelected = (day: number) => {
+        console.log('...day...', day);
+    }
+
+    const hourSelected = (hour: number) => {
+        console.log('...hour...', hour);
+    }
+
     return (
-        <div className="grid grid-cols-12 gap-4 p-4">
+        <div className="grid grid-cols-12 gap-4 p-4 pt-6">
             {/* Calendar Section */}
             <div className="col-span-8 grid grid-cols-7 gap-2">
                 {getMonthDays().map((day) => (
@@ -22,6 +30,7 @@ const Calendar: React.FC = () => {
                         key={day}
                         className="border border-gray-300 rounded-lg p-4 flex items-center justify-center"
                         whileHover={{ scale: 1.05 }}
+                        onClick={() => dateSelected(day)}
                     >
                         {day}
                     </motion.div>
@@ -32,11 +41,12 @@ const Calendar: React.FC = () => {
             <div className="col-span-4">
                 <Card>
                     <CardContent>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 cursor-pointer">
                             {hours.map((hour) => (
                                 <div
                                     key={hour}
                                     className="border-b border-gray-300 pb-2 pt-2 text-center"
+                                    onClick={() => hourSelected(hour)}
                                 >
                                     {hour % 12 || 12} {hour >= 12 ? "PM" : "AM"}
                                 </div>
