@@ -8,6 +8,8 @@ import { Loader2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
+import { useRouter } from "next/navigation"
+
 interface SignProps {
     signup: boolean;
 }
@@ -28,6 +30,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
     const keepMeRef = useRef<HTMLInputElement>(null);
 
     const { toast } = useToast()
+
+    const router = useRouter();
 
     const sendToForm = async (e: React.FormEvent<HTMLFormElement>) => {
         setLoading(true);
@@ -56,7 +60,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         }
         if (signup) {
             try {
-                const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+                const response = await fetch('http://localhost:3000/api/signup', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
                 console.log('...response....', response);
 
                 if (!response.ok) {
@@ -101,9 +105,15 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     if (countryRef.current) countryRef.current.value = "";
                 }
                 setLoading(false);
+                router.push('/Sign/In')
             } catch (err) {
                 console.error('Fetch error:', err)
             }
+        } else {
+            const formDataForSignIn = { email: formData.email, password: formData.password }
+            const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+            console.log('...response....', response);
+            setLoading(false)
         }
     }
 

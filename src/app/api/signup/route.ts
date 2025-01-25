@@ -3,37 +3,25 @@ import { FormDataSchema } from "./schema";
 import { z } from "zod";
 import { client } from "@/sanity/lib/client";
 
-
-interface signInType {
-  email: string,
-  password: string
-}
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    console.log('...body...', body);
     const validatedData = FormDataSchema.parse(body);
     console.log("Validated data:", validatedData);
 
     // Create the record directly using your Sanity client
-    // const result = await client.create({
-    //   _type: "signin",
-    //   email: validatedData.email,
-    //   password: validatedData.password,
-    // });
-
-    const result = await client.fetch(`
-      *[_type=='signup']{email, password}
-      `)
-      console.log("Sanity creation result:", result);
-      const doesExist = result.filter((r: signInType) => r.email === validatedData.email)
-      console.log("doesExist:", doesExist);
-
-    if (doesExist.length) {
-      const doesPasswordMatch = doesExist[0].password === validatedData.password;
-      console.log('...doesPasswordMatch...', doesPasswordMatch);
-    }
+    const result = await client.create({
+      _type: "signup",
+      email: validatedData.email,
+      firstname: validatedData.firstName,
+      lastname: validatedData.lastName,
+      password: validatedData.password,
+      country: validatedData.country,
+      gender: validatedData.gender,
+      dob: validatedData.dob,
+      signup: validatedData.signUp,
+    });
+    console.log("Sanity creation result:", result);
 
     return NextResponse.json({ success: true, data: validatedData });
   } catch (err) {
