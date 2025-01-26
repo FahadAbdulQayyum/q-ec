@@ -53,9 +53,10 @@ const CartPopup = () => {
                 </div>
                 <button
                     className="bg-gray-200 px-10 w-full text-black py-2 rounded-b-lg hover:bg-gray-300"
-                    onClick={() => router.push('/Checkout')}
+                    // onClick={() => router.push('/Checkout')}
+                    onClick={() => router.push('/TimeBox')}
                 >
-                    Got To Checkout
+                    Go To Checkout
                 </button>
             </div>
         }
