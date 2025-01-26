@@ -1,11 +1,25 @@
+"use client"
+
 // import Image from 'next/image';
 // import Link from 'next/link';
 
 import Link from "next/link";
 
+import { useSelector } from 'react-redux';
+import { RootState } from "../lib/store";
+import { useEffect } from "react";
+import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
+
 const UpperBanner = () => {
+
+    const userInfo: (UserInfo[] | null) = useSelector((state: RootState) => state.userInfo.userInfo);
+
+    useEffect(() => {
+        console.log('...userInfo...', userInfo);
+    }, [userInfo])
+
     return (
-        <div className="bg-primary text-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
+        <div className="bg-primary black-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
             {/* Left Portion */}
             <div className="left-portion flex justify-center md:justify-start mb-2 md:mb-0">
                 {/* Use the Image component if working with Next.js */}
@@ -27,7 +41,7 @@ const UpperBanner = () => {
                     <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden hover:underline cursor-pointer ml-4">
                         Help
                     </li>
-                    {true ? <>
+                    {userInfo === null ? <>
                         <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
                             <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
                                 Join Us
@@ -41,7 +55,7 @@ const UpperBanner = () => {
                     </> :
                         <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
                             <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
-                                Welcome, Name!
+                                Welcome, {userInfo && userInfo[0]?.firstname}!
                             </Link>
                         </li>}
                 </ul>

@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { client } from '@/sanity/lib/client';
 
-interface UserInfo {
+export interface UserInfo {
 
     email: string;
     firstname: string;
@@ -20,11 +20,11 @@ interface UserInfo {
 }
 
 export interface UserInfoState {
-    userInfo: UserInfo | null;
+    userInfo: UserInfo[] | null;
     userInfos: UserInfo[];
-    userInfoFiltered: UserInfo[];
-    loading: boolean;
-    error: string | null;
+    // userInfoFiltered: UserInfo[];
+    // loading: boolean;
+    // error: string | null;
 }
 
 const initialState: UserInfoState = {
