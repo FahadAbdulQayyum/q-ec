@@ -26,10 +26,6 @@ const UpperBanner = () => {
 
     const userInfo: (UserInfo[] | null) = useSelector((state: RootState) => state.userInfo.userInfo);
 
-    // useEffect(() => {
-    //     setIsHydrated(true); // Set hydrated to true after the client has rendered
-    // }, []);
-
     // On app start, check if user info exists in localStorage
     useEffect(() => {
 
