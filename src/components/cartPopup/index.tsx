@@ -57,7 +57,7 @@ const CartPopup = () => {
                     // onClick={() => router.push('/Checkout')}
                     onClick={() => router.push('/TimeBox')}
                 >
-                    {`${window.location.pathname !== 'Checkout' ? 'Go To Checkout' : 'Go To TimeBox'}`}
+                    {`${window.location.pathname === 'Checkout' ? 'Go To Checkout' : 'Go To TimeBox'}`}
                 </button>
             </div>
         }

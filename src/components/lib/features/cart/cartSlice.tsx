@@ -35,14 +35,17 @@ const cartSlice = createSlice({
     reducers: {
         pushCart: (state, action) => {
             console.log('hehehe', action.payload)
+            if (action.payload.productName) {
+                console.log('you are here in productName')
+                state.obj.productName.push(action.payload.productName);
+            }
             if (action.payload.day) {
+                console.log('you are here in day')
                 state.day = action.payload.day
             }
             if (action.payload.hour) {
+                console.log('you are here in hour')
                 state.hour = action.payload.hour
-            }
-            if (action.payload.productName) {
-                state.obj.productName.push(action.payload);
             }
 
         },
