@@ -22,6 +22,10 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
     const [gender, setGender] = useState<string>('male');
     const [loading, setLoading] = useState<boolean>(false);
 
+    const [isCheckedSignedIn, setIsCheckedSignedIn] = useState(false);
+    const [isCheckedEmailUpdate, setIsCheckedEmailUpdate] = useState(false);
+
+
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const firstNameRef = useRef<HTMLInputElement>(null);
@@ -206,7 +210,12 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     !signup && (
                         <div className="flex justify-between w-full max-w-md text-sm text-gray-400">
                             <div>
-                                <input type="checkbox" checked id="keepSignedIn" ref={keepMeRef} />
+                                <input
+                                    type="checkbox"
+                                    checked={isCheckedSignedIn}
+                                    onChange={(e) => setIsCheckedSignedIn(e.target.checked)}
+                                    id="keepSignedIn"
+                                    ref={keepMeRef} />
                                 <label htmlFor="keepSignedIn" className="ml-2">Keep me signed in</label>
                             </div>
                             <span>Forgotten your password?</span>
@@ -216,7 +225,12 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 {
                     signup && (
                         <div className="flex w-full max-w-md text-sm text-gray-400">
-                            <input type="checkbox" id="emailUpdates" ref={signUpRef} />
+                            <input
+                                type="checkbox"
+                                id="emailUpdates"
+                                checked={isCheckedEmailUpdate}
+                                onChange={(e) => setIsCheckedEmailUpdate(e.target.checked)}
+                                ref={signUpRef} />
                             <label htmlFor="emailUpdates" className="ml-2">
                                 Sign up for emails to get updates from Bendat on products, offers, and your Member benefits
                             </label>
