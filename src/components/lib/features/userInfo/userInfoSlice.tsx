@@ -20,7 +20,7 @@ export interface UserInfo {
 }
 
 export interface UserInfoState {
-    userInfo: UserInfo[] | null;
+    userInfo: UserInfo | null;
     userInfos: UserInfo[];
     // userInfoFiltered: UserInfo[];
     // loading: boolean;
@@ -60,8 +60,9 @@ const userInfoSlice = createSlice({
             // state.userInfo = action.payload;
             // // state.userInfo.push(action.payload);
             // Check if userInfo is null, then initialize it as an array
-            if (state.userInfo !== null) {
-                state.userInfo.push(action.payload); // Add the new user to the existing array
+            if (state.userInfo === null) {
+                // state.userInfo.push(action.payload); // Add the new user to the existing array
+                state.userInfo = action.payload; // Add the new user to the existing array
             }
             // else {
             //     state.userInfo.push(action.payload); // Add the new user to the existing array

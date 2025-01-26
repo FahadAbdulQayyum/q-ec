@@ -24,7 +24,7 @@ const UpperBanner = () => {
 
     const [isHydrated, setIsHydrated] = useState(false);
 
-    const userInfo: (UserInfo[] | null) = useSelector((state: RootState) => state.userInfo.userInfo);
+    const userInfo: (UserInfo | null) = useSelector((state: RootState) => state.userInfo.userInfo);
 
     // On app start, check if user info exists in localStorage
     useEffect(() => {
@@ -102,7 +102,7 @@ const UpperBanner = () => {
                         <>
                             <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
                                 <Link href="#" aria-label="Join Bendat Membership" className="hover:underline">
-                                    Welcome, {userInfo && userInfo[0]?.firstname}!
+                                    Welcome, {userInfo && userInfo?.firstname}!
                                 </Link>
                             </li>
                             <li className="relative md:pr-4 ml-4">

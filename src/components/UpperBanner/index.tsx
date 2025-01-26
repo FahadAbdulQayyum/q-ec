@@ -15,7 +15,7 @@ const UpperBanner = () => {
 
     const [isHydrated, setIsHydrated] = useState(false); // Ensure hydration before accessing localStorage
     const [isFetched, setIsFetched] = useState(false); // Track if data fetching is complete
-    const userInfo: UserInfo[] | null = useSelector((state: RootState) => state.userInfo.userInfo);
+    const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
 
     useEffect(() => {
         setIsHydrated(true); // Mark hydration as complete
@@ -51,8 +51,9 @@ const UpperBanner = () => {
         // Redirect once the data is fetched and user info exists
         if (isFetched && userInfo) {
             router.push("/"); // Redirect to the home page
-            console.log('userInfo...', userInfo[0]);
-        } else {
+            console.log('userInfo...', userInfo);
+        }
+        else {
             router.push("/Sign/In"); // Redirect to the home page
         }
     }, [isFetched, userInfo, router]);
@@ -90,7 +91,7 @@ const UpperBanner = () => {
                         <>
                             <li className="ml-4">
                                 <Link href="#" aria-label="Join Bendat Membership" className="hover:underline">
-                                    Welcome, {userInfo[0]?.firstname}!
+                                    Welcome, {userInfo?.firstname}!
                                 </Link>
                             </li>
                             <li className="ml-4">
