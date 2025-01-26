@@ -56,6 +56,7 @@ const userInfoSlice = createSlice({
     initialState,
     reducers: {
         initializeUserInfo: (state, action: PayloadAction<UserInfo>) => {
+            console.log("...I've been called...", action.payload)
             state.userInfo = action.payload;
         },
     },

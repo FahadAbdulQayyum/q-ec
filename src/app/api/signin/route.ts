@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     // });
 
     const result = await client.fetch(`
-      *[_type=='signup']{email, password}
+      *[_type=='signup']{email, password, firstname, lastname, signup, gender, dob, country}
       `)
       console.log("Sanity creation result:", result);
       const doesExist = result.filter((r: signInType) => r.email === validatedData.email)
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       console.log('...doesPasswordMatch...', doesPasswordMatch);
       if(doesPasswordMatch) {
         return NextResponse.json(
-          { success: true, msg: "Successfully Logged In", status: 200 },
+          { success: true, msg: "Successfully Logged In", status: 200, data: doesExist},
         );
       }
       console.log('...bypassed...')

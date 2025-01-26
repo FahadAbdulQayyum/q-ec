@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button"
 
 import { useRouter } from "next/navigation"
 
+import { useAppDispatch } from '@/components/lib/hooks'
+import { initializeUserInfo } from "../lib/features/userInfo/userInfoSlice";
+
 interface SignProps {
     signup: boolean;
 }
@@ -32,6 +35,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
     const { toast } = useToast()
 
     const router = useRouter();
+
+    const dispatch = useAppDispatch();
 
     const sendToForm = async (e: React.FormEvent<HTMLFormElement>) => {
         setLoading(true);
@@ -145,6 +150,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                         description: resp.msg
                     })
                 setLoading(false)
+                dispatch(initializeUserInfo(resp.data));
             } catch (err) {
                 console.error('Fetch error:', err)
                 setLoading(false)
