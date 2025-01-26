@@ -9,24 +9,43 @@ import Link from "next/link";
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/components/lib/hooks'
 import { RootState } from "../lib/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { initializeUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
 import { RiLogoutCircleLine } from "react-icons/ri";
+
+// import { useRouter } from 'next/navigation';
 
 const UpperBanner = () => {
 
     const dispatch = useAppDispatch();
     // const dispatch = useDispatch();
 
+    // const router = useRouter();
+
+    const [isHydrated, setIsHydrated] = useState(false);
+
     const userInfo: (UserInfo[] | null) = useSelector((state: RootState) => state.userInfo.userInfo);
+
+    // useEffect(() => {
+    //     setIsHydrated(true); // Set hydrated to true after the client has rendered
+    // }, []);
 
     // On app start, check if user info exists in localStorage
     useEffect(() => {
+
+        setIsHydrated(true); // Set hydrated to true after the client has rendered
+
         const storedUserInfo = localStorage.getItem("userInfo");
         if (storedUserInfo) {
             dispatch(initializeUserInfo(JSON.parse(storedUserInfo)));
+            // router.push('http://localhost:3000');
         }
     }, [dispatch]);
+
+    if (!isHydrated) {
+        // Render nothing or a loading placeholder during hydration
+        return <div className="bg-primary black-black py-2 px-standardSize"></div>;
+    }
 
     return (
         <div className="bg-primary black-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
