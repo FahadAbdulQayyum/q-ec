@@ -5,18 +5,32 @@
 
 import Link from "next/link";
 
+// import { useSelector, useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '@/components/lib/hooks'
 import { RootState } from "../lib/store";
 import { useEffect } from "react";
-import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
+import { initializeUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 const UpperBanner = () => {
 
+    const dispatch = useAppDispatch();
+    // const dispatch = useDispatch();
+
     const userInfo: (UserInfo[] | null) = useSelector((state: RootState) => state.userInfo.userInfo);
 
+    // useEffect(() => {
+    //     console.log('...userInfo...', userInfo);
+    // }, [userInfo])
+
+    // On app start, check if user info exists in localStorage
     useEffect(() => {
-        console.log('...userInfo...', userInfo);
-    }, [userInfo])
+        const storedUserInfo = localStorage.getItem("userInfo");
+        if (storedUserInfo) {
+            dispatch(initializeUserInfo(JSON.parse(storedUserInfo)));
+        }
+    }, [dispatch]);
 
     return (
         <div className="bg-primary black-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
@@ -53,11 +67,20 @@ const UpperBanner = () => {
                             </Link>
                         </li>
                     </> :
-                        <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
-                            <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
-                                Welcome, {userInfo && userInfo[0]?.firstname}!
-                            </Link>
-                        </li>}
+                        <>
+                            <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
+                                <Link href="#" aria-label="Join Bendat Membership" className="hover:underline">
+                                    Welcome, {userInfo && userInfo[0]?.firstname}!
+                                </Link>
+                            </li>
+                            <li className="relative md:pr-4 ml-4">
+                                <Link href="/Sign/in" aria-label="Sign into your account" className="hover:underline">
+                                    <RiLogoutCircleLine size={20} />
+                                </Link>
+                            </li>
+                        </>
+
+                    }
                 </ul>
             </div>
         </div>
