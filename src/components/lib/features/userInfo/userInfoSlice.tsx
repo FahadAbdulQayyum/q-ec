@@ -30,9 +30,9 @@ export interface UserInfoState {
 const initialState: UserInfoState = {
     userInfo: null,
     userInfos: [],
-    userInfoFiltered: [],
-    loading: false,
-    error: null,
+    // userInfoFiltered: [],
+    // loading: false,
+    // error: null,
 };
 
 // interface FetchedUserInfo {
@@ -57,11 +57,17 @@ const userInfoSlice = createSlice({
     reducers: {
         initializeUserInfo: (state, action: PayloadAction<UserInfo>) => {
             console.log("...I've been called...", action.payload)
-            state.userInfo = action.payload;
+            // state.userInfo = action.payload;
+            // // state.userInfo.push(action.payload);
+            // Check if userInfo is null, then initialize it as an array
+            if (state.userInfo === null) {
+                state.userInfo = [action.payload]; // Initialize with the new user
+            } else {
+                state.userInfo.push(action.payload); // Add the new user to the existing array
+            }
         },
     },
 });
 
 export const { initializeUserInfo } = userInfoSlice.actions;
 export default userInfoSlice.reducer;
-export type { UserInfo };
