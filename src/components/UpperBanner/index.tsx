@@ -20,10 +20,6 @@ const UpperBanner = () => {
 
     const userInfo: (UserInfo[] | null) = useSelector((state: RootState) => state.userInfo.userInfo);
 
-    // useEffect(() => {
-    //     console.log('...userInfo...', userInfo);
-    // }, [userInfo])
-
     // On app start, check if user info exists in localStorage
     useEffect(() => {
         const storedUserInfo = localStorage.getItem("userInfo");
