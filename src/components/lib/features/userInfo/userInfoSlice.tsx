@@ -19,7 +19,7 @@ interface UserInfo {
     };
 }
 
-interface UserInfoState {
+export interface UserInfoState {
     userInfo: UserInfo | null;
     userInfos: UserInfo[];
     userInfoFiltered: UserInfo[];

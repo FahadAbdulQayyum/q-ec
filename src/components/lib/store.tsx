@@ -1,30 +1,64 @@
-"use client"
+"use client";
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './features/counter/counterSlice';
 import cartReducer from './features/cart/cartSlice';
 import productReducer from './features/product/productSlice';
 import serviceReducer from './features/service/serviceSlice';
 import locationReducer from './features/location/locationSlice';
-import dynamicApiCallReducer from './features/dynamicApiCall/dynamicAPISlice';
-import userInfoReducer from './features/userInfo/userInfoSlice';
+// import dynamicApiCallReducer from './features/dynamicApiCall/dynamicAPISlice';
+import userInfoReducer, { UserInfoState } from './features/userInfo/userInfoSlice';
+import { loadState, saveState } from './features/localStorage';
 
-export const makeStore = () => {
-    return configureStore({
-        reducer: {
-            cart: cartReducer, // Ensure `counter` is registered here
-            counter: counterReducer, // Ensure `counter` is registered here
-            location: locationReducer, // Ensure `counter` is registered here
-            product: productReducer, // Ensure `counter` is registered here
-            service: serviceReducer, // Ensure `counter` is registered here
-            dynamicApiCall: dynamicApiCallReducer,
-            userInfo: userInfoReducer
-        }
-    })
+// Load persisted state from localStorage
+const preloadedState = loadState()
+    || {
+    // cart: { /* default cart state */ },
+    // counter: { /* default counter state */ },
+    // location: { /* default location state */ },
+    // product: { products: [] },
+    // service: { /* default service state */ },
+    // dynamicApiCall: { /* default API call state */ },
+    userInfo: {
+        userInfo: null,
+        userInfos: [],
+        userInfoFiltered: [],
+        loading: false,
+        error: null,
+    } as UserInfoState,
 }
 
-// Infer the type of makeStore
-export type AppStore = ReturnType<typeof makeStore>
+export const makeStore = () => {
+    const store = configureStore({
+        reducer: {
+            cart: cartReducer,
+            counter: counterReducer,
+            location: locationReducer,
+            product: productReducer,
+            service: serviceReducer,
+            // dynamicApiCall: dynamicApiCallReducer,
+            userInfo: userInfoReducer,
+        },
+        preloadedState, // Initialize store with persisted state
+    });
+
+    // Save the state to localStorage whenever it changes
+    store.subscribe(() => {
+        saveState({
+            cart: store.getState().cart,
+            counter: store.getState().counter,
+            location: store.getState().location,
+            product: store.getState().product,
+            service: store.getState().service,
+            // dynamicApiCall: store.getState().dynamicApiCall,
+            userInfo: store.getState().userInfo, // Persist userInfo state
+        });
+    });
+
+    return store;
+};
+
+// Infer the type of the store
+export type AppStore = ReturnType<typeof makeStore>;
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>
-// export type AppDispatch = AppStore['dispatch']
+export type RootState = ReturnType<AppStore['getState']>;
 export type AppDispatch = ReturnType<typeof makeStore>['dispatch'];

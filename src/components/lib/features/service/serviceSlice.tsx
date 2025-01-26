@@ -16,7 +16,7 @@ interface Service {
     };
 }
 
-interface ServiceState {
+export interface ServiceState {
     service: Service | null;
     services: Service[];
     serviceFiltered: Service[];

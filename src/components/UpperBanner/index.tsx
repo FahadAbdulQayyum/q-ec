@@ -27,16 +27,23 @@ const UpperBanner = () => {
                     <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden hover:underline cursor-pointer ml-4">
                         Help
                     </li>
-                    <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
-                        <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
-                            Join Us
-                        </Link>
-                    </li>
-                    <li className="relative md:pr-4 ml-4">
-                        <Link href="/Sign/in" aria-label="Sign into your account" className="hover:underline">
-                            Sign In
-                        </Link>
-                    </li>
+                    {true ? <>
+                        <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
+                            <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
+                                Join Us
+                            </Link>
+                        </li>
+                        <li className="relative md:pr-4 ml-4">
+                            <Link href="/Sign/in" aria-label="Sign into your account" className="hover:underline">
+                                Sign In
+                            </Link>
+                        </li>
+                    </> :
+                        <li className="border-black md:pr-4 relative after:content-[''] md:after:absolute after:top-0 after:right-0 after:h-full after:w-[1px] after:bg-black md:last:after:hidden ml-4">
+                            <Link href="/Sign/up" aria-label="Join Bendat Membership" className="hover:underline">
+                                Welcome, Name!
+                            </Link>
+                        </li>}
                 </ul>
             </div>
         </div>

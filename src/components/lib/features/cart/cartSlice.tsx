@@ -15,7 +15,7 @@ export interface ServiceType {
     pic: string
 }
 
-interface CartState {
+export interface CartState {
     obj: {
         productName: ServiceType[];
     }

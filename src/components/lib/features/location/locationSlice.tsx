@@ -7,7 +7,7 @@ interface Location {
     name: string;
 }
 
-interface LocationState {
+export interface LocationState {
     location: Location | null;
     locations: Location[];
     loading: boolean;

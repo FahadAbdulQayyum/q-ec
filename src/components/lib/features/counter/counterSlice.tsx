@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { AppStore } from '../../store';
 
-interface CounterState {
+export interface CounterState {
     value: number;
     obj: {
         productName: string[];

@@ -7,7 +7,7 @@ interface Product {
     name: string;
 }
 
-interface ProductState {
+export interface ProductState {
     product: Product | null;
     products: Product[];
     loading: boolean;
