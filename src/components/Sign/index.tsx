@@ -134,7 +134,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                         {
                             variant: "destructive",
                             title: "Invalid!",
-                            // description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
                             description: resp.msg
                         })
                     setLoading(false);
@@ -142,14 +141,9 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 }
                 toast(
                     {
-                        // variant: "destructive",
                         title: "Successfully!",
-                        // description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
                         description: resp.msg
                     })
-                // const resJson = await response.json();
-                // console.log('....resJson....', resJson);
-                // console.log('...response....', response);
                 setLoading(false)
             } catch (err) {
                 console.error('Fetch error:', err)
@@ -193,11 +187,9 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                             </select>
                             <div className="flex justify-between w-full max-w-md space-x-4">
                                 <label className={`flex items-center space-x-2 border w-1/2 py-2 hover:bg-gray-300 hover:text-white ${gender === 'male' ? 'bg-black hover:bg-black text-white' : ''}`}>
-                                    {/* <input type="radio" name="gender" value="male" className="hidden" ref={genderRef} /> */}
                                     <span className="text-sm text-gray-400 w-full text-center hover:text-white" onClick={() => specifyGender("male")}>Male</span>
                                 </label>
                                 <label className={`flex items-center space-x-2 border w-1/2 py-2 hover:bg-gray-300 hover:text-white ${gender === 'female' ? 'bg-black hover:bg-black text-white' : ''}`}>
-                                    {/* <input type="radio" name="gender" value="female" className="hidden" ref={genderRef} /> */}
                                     <span className="text-sm text-gray-400 w-full text-center hover:text-white" onClick={() => specifyGender("female")}>Female</span>
                                 </label>
                             </div>
@@ -240,7 +232,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     </Button>
                     : <button
                         className="bg-black w-full max-w-md text-white py-2 rounded uppercase"
-                    // onClick={(e) => sendToForm(e)}
                     >{signup ? "Join Us" : "Sign in"}</button>}
                 <div className="flex text-sm text-gray-400">
                     <p>{signup ? "Already a Member?" : "Not a Member?"}</p>
