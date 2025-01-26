@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../lib/store'
 import { TiDelete } from "react-icons/ti";
 import { useRouter } from 'next/navigation';
+
 const CartPopup = () => {
 
     const cart = useSelector((state: RootState) => state.cart.obj.productName);
@@ -56,7 +57,7 @@ const CartPopup = () => {
                     // onClick={() => router.push('/Checkout')}
                     onClick={() => router.push('/TimeBox')}
                 >
-                    Go To Checkout
+                    {`${window.location.pathname !== 'Checkout' ? 'Go To Checkout' : 'Go To TimeBox'}`}
                 </button>
             </div>
         }

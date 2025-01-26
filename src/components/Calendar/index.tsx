@@ -1,8 +1,13 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { pushCart } from "@/components/lib/features/cart/cartSlice";
 
 const Calendar: React.FC = () => {
+
+    const dispatch = useDispatch();
+
     const hours = Array.from({ length: 16 }, (_, i) => 9 + i); // Hours from 9 AM to 12 AM
 
     const getMonthDays = () => {
@@ -15,6 +20,8 @@ const Calendar: React.FC = () => {
 
     const dateSelected = (day: number) => {
         console.log('...day...', day);
+        dispatch(pushCart({ day }));
+
     }
 
     const hourSelected = (hour: number) => {

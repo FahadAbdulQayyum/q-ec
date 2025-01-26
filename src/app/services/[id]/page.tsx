@@ -34,7 +34,7 @@ const FetchingSanityDataById = () => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (productName: dataTypeInnerOuter) => {
-    dispatch(pushCart(productName));
+    dispatch(pushCart({ productName }));
   };
 
   useEffect(() => {

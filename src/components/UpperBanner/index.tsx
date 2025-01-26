@@ -51,6 +51,9 @@ const UpperBanner = () => {
         // Redirect once the data is fetched and user info exists
         if (isFetched && userInfo) {
             router.push("/"); // Redirect to the home page
+            console.log('userInfo...', userInfo[0]);
+        } else {
+            router.push("/Sign/In"); // Redirect to the home page
         }
     }, [isFetched, userInfo, router]);
 

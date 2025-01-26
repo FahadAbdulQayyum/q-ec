@@ -61,7 +61,7 @@ const userInfoSlice = createSlice({
             // // state.userInfo.push(action.payload);
             // Check if userInfo is null, then initialize it as an array
             if (state.userInfo === null) {
-                state.userInfo = [action.payload]; // Initialize with the new user
+                state.userInfo = [...action.payload]; // Initialize with the new user
             } else {
                 state.userInfo.push(action.payload); // Add the new user to the existing array
             }

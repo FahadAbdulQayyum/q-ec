@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 // import { AppStore } from '../../store';
 
-export interface ServiceType {
+export interface CartType {
     _id: string,
     name: string,
     variation: string,
@@ -17,12 +17,16 @@ export interface ServiceType {
 
 export interface CartState {
     obj: {
-        productName: ServiceType[];
-    }
+        productName: CartType[];
+    },
+    day: string,
+    hour: string,
 }
 
 const initialState: CartState = {
-    obj: { productName: [] }
+    obj: { productName: [] },
+    day: "",
+    hour: ""
 };
 
 const cartSlice = createSlice({
@@ -30,7 +34,17 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         pushCart: (state, action) => {
-            state.obj.productName.push(action.payload);
+            console.log('hehehe', action.payload)
+            if (action.payload.day) {
+                state.day = action.payload.day
+            }
+            if (action.payload.hour) {
+                state.hour = action.payload.hour
+            }
+            if (action.payload.productName) {
+                state.obj.productName.push(action.payload);
+            }
+
         },
         decrement: (state, action) => {
             console.log('action.payload...', action.payload)
