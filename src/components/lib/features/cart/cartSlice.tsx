@@ -12,7 +12,9 @@ export interface CartType {
     city_available: string[],
     price: number,
     currently_offered: boolean,
-    pic: string
+    pic: string,
+    day?: string,
+    hour?: string,
 }
 
 export interface CartState {

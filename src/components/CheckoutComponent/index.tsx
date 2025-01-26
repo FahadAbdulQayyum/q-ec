@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../lib/store'
 
 const CheckoutComponent = () => {
-    const cart = useSelector((state: RootState) => state.cart.obj.productName);
+    const cart = useSelector((state: RootState) => state.cart);
     useEffect(() => {
         console.log('...cart...', cart);
     }, [cart])
