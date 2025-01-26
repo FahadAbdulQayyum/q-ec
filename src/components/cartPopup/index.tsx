@@ -55,9 +55,10 @@ const CartPopup = () => {
                 <button
                     className="bg-gray-200 px-10 w-full text-black py-2 rounded-b-lg hover:bg-gray-300"
                     // onClick={() => router.push('/Checkout')}
-                    onClick={() => router.push('/TimeBox')}
+                    // onClick={() => router.push('/TimeBox')}
+                    onClick={() => router.push(`${window.location.pathname === 'TimeBox' ? '/Checkout' : '/TimeBox'}`)}
                 >
-                    {`${window.location.pathname === 'Checkout' ? 'Go To Checkout' : 'Go To TimeBox'}`}
+                    {`${window.location.pathname === 'TimeBox' ? 'Go To Checkout' : 'Go To TimeBox'}`}
                 </button>
             </div>
         }

@@ -3,10 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { pushCart } from "@/components/lib/features/cart/cartSlice";
-
+import {useRouter } from 'next/navigation';
 const Calendar: React.FC = () => {
 
     const dispatch = useDispatch();
+
+const router = useRouter();
 
     const hours = Array.from({ length: 16 }, (_, i) => 9 + i); // Hours from 9 AM to 12 AM
 
@@ -26,6 +28,7 @@ const Calendar: React.FC = () => {
 
     const hourSelected = (hour: number) => {
         console.log('...hour...', hour);
+        router.push('/Checkout')
     }
 
     return (

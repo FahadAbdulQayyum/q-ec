@@ -1,8 +1,18 @@
+"use client"
 import Image from "next/image";
+import { useEffect } from "react";
 import { BsInboxFill } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
 
+
+import { useSelector } from 'react-redux'
+import { RootState } from '../lib/store'
+
 const CheckoutComponent = () => {
+    const cart = useSelector((state: RootState) => state.cart.obj.productName);
+    useEffect(() => {
+        console.log('...cart...', cart);
+    }, [cart])
     return (
         <div className="flex flex-col">
             <div className="flex flex-col lg:flex-row p-6 space-x-12">
