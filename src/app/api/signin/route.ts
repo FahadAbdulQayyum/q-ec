@@ -33,9 +33,14 @@ export async function POST(request: Request) {
     if (doesExist.length) {
       const doesPasswordMatch = doesExist[0].password === validatedData.password;
       console.log('...doesPasswordMatch...', doesPasswordMatch);
+      if(doesPasswordMatch) {
+        return NextResponse.json(
+          { success: true, msg: "Successfully Logged In", status: 200 },
+        );
+      }
+      console.log('...bypassed...')
+          return NextResponse.json({ success: false, msg: "Invalid Credentials", status: 400 });
     }
-
-    return NextResponse.json({ success: true, data: validatedData });
   } catch (err) {
     if (err instanceof z.ZodError) {
       console.error("Validation error:", err.errors);

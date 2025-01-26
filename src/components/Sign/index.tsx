@@ -110,10 +110,51 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 console.error('Fetch error:', err)
             }
         } else {
-            const formDataForSignIn = { email: formData.email, password: formData.password }
-            const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
-            console.log('...response....', response);
-            setLoading(false)
+            try {
+                const formDataForSignIn = { email: formData.email, password: formData.password }
+                const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                if (!response.ok) {
+                    const error = await response.json();
+                    console.error('Error:', error.error || 'Something went wrong');
+                    if (error.details) {
+                        console.error('Validation Errors:', error.details);
+                        toast(
+                            {
+                                variant: "destructive",
+                                title: "Invalid!",
+                                description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
+                            })
+                        setLoading(false);
+                    }
+                    return;
+                }
+                const resp = await response.json();
+                if (!resp.success) {
+                    toast(
+                        {
+                            variant: "destructive",
+                            title: "Invalid!",
+                            // description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
+                            description: resp.msg
+                        })
+                    setLoading(false);
+                    return
+                }
+                toast(
+                    {
+                        // variant: "destructive",
+                        title: "Successfully!",
+                        // description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
+                        description: resp.msg
+                    })
+                // const resJson = await response.json();
+                // console.log('....resJson....', resJson);
+                // console.log('...response....', response);
+                setLoading(false)
+            } catch (err) {
+                console.error('Fetch error:', err)
+                setLoading(false)
+            }
         }
     }
 
