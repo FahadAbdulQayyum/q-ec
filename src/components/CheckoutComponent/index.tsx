@@ -56,7 +56,7 @@ const CheckoutComponent = () => {
                         of clearing customs (including sharing it with customs officials) for all orders and returns. If your KYC does not match your shipping
                         address, please click the link for more information. Learn More
                     </p>
-                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5">
+                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center">
                         <BsInboxFill />
                         <p className="ml-2">Deliver it</p>
                     </button>
@@ -155,7 +155,7 @@ const CheckoutComponent = () => {
                         </div>
                     )}
 
-                    <h1 className="font-bold mb-4">Order Summary</h1>
+                    {/* <h1 className="font-bold mb-4">Order Summary</h1>
                     <div className="flex w-full justify-between">
                         <p>Subtotal</p>
                         <p>₹ 20,890.00</p>
@@ -171,7 +171,7 @@ const CheckoutComponent = () => {
                     </div>
                     <div className="border-b w-full h-1 my-4"></div>
 
-                    <p className="text-sm">(The total reflects the price of your order, including all duties and taxes)</p>
+                    <p className="text-sm">(The total reflects the price of your order, including all duties and taxes)</p> */}
 
                     {/* Delivery Information */}
                     {cartInfo !== null && cartInfo[0]?.obj !== null && cartInfo[0]?.obj.productName.map((v, i) =>
@@ -182,7 +182,7 @@ const CheckoutComponent = () => {
                                     src={urlFor(v?.pic)?.url()}
                                     alt="Bendat" width={120} height={120} className="bg-transparent" />
                                 <div className="ml-2">
-                                    {/* <p className="text-sm">Bendat Dri-FIT ADV TechKnit Ultra Men&apos;s Short-Sleeve Running Top</p> */}
+                                    {/* <p className="text-sm">Bendat Dri-FIT ADV TechK qnit Ultra Men&apos;s Short-Sleeve Running Top</p> */}
                                     <p className="text-sm">{v.name}</p>
                                     <p className="text-gray-400 text-sm">Qty: 1</p>
                                     <p className="text-gray-400 text-sm">Size: L</p>
