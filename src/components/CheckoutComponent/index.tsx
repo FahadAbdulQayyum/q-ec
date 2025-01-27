@@ -7,7 +7,7 @@ import { IoLocationOutline } from "react-icons/io5";
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../lib/store'
-import { dataTypeInnerOuter } from "@/app/services/[id]/page";
+// import { dataTypeInnerOuter } from "@/app/services/[id]/page";
 import { CartState } from "../lib/features/cart/cartSlice";
 import { urlFor } from "@/sanity/lib/image";
 
