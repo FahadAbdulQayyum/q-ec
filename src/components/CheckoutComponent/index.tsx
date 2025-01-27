@@ -11,6 +11,7 @@ import { RootState } from '../lib/store'
 import { CartState } from "../lib/features/cart/cartSlice";
 import { urlFor } from "@/sanity/lib/image";
 import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
+import { client } from "@/sanity/lib/client";
 
 
 // interface cartType {
@@ -47,7 +48,7 @@ const CheckoutComponent = () => {
 
     const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
 
-    const submitCart = () => {
+    const submitCart = async () => {
         const allInOne = {
             name: userInfo?.firstname + " " + userInfo?.lastname,
             city_available: "Karachi",
@@ -57,6 +58,11 @@ const CheckoutComponent = () => {
             selected_services_list: cartInfo[0]?.obj.productName
         };
         console.log('...., submited Cart ,...', allInOne)
+        const result = await client.create({
+            _type: "job",
+            ...allInOne
+        });
+        console.log('!...result...!', result);
     }
 
     return (

@@ -29,7 +29,7 @@ export default {
             title: 'Price',
         },
         {
-            name: 'agent_choosen',
+            name: 'agent_chosen',
             type: 'boolean',
             title: 'Agent Chosen',
         },
