@@ -12,13 +12,13 @@ import { CartState } from "../lib/features/cart/cartSlice";
 import { urlFor } from "@/sanity/lib/image";
 
 
-interface cartType {
-    // products: dataTypeInnerOuter,
-    obj: dataTypeInnerOuter,
-    day: string,
-    hour: string
+// interface cartType {
+//     // products: dataTypeInnerOuter,
+//     obj: dataTypeInnerOuter,
+//     day: string,
+//     hour: string
 
-}
+// }
 
 const CheckoutComponent = () => {
 

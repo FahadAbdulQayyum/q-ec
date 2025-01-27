@@ -25,13 +25,11 @@ export interface CartState {
     hour: string,
 }
 
-export interface WholeCartState {
-    obj: {
-        productName: CartType[];
-    },
-    day: string,
-    hour: string,
-}
+// export interface WholeCartState {
+//         productName: CartType[];
+//     day: string,
+//     hour: string,
+// }
 
 const initialState: CartState = {
     obj: { productName: [] },
