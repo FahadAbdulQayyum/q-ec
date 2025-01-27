@@ -24,8 +24,7 @@ export const loadState = () => {
         console.error('Could not load state:', err);
         return undefined;
     }
-};
-
+}
 export const saveState = (state: {
     // userInfo: { userInfo: UserInfo | null; userInfos: UserInfo[]; userInfoFiltered: UserInfo[]; };
     // userInfo: { userInfo: UserInfo };

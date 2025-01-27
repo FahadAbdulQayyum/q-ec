@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { pushCart } from "@/components/lib/features/cart/cartSlice";
 import { ImLocation } from "react-icons/im";
 
-type dataTypeInnerOuter = {
+export type dataTypeInnerOuter = {
   _id: string;
   name: string;
   variation: string;
