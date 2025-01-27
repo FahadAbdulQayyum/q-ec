@@ -175,7 +175,7 @@ const CheckoutComponent = () => {
 
                     {/* Delivery Information */}
                     {cartInfo !== null && cartInfo[0]?.obj !== null && cartInfo[0]?.obj.productName.map((v, i) =>
-                        <div>
+                        <div key={i}>
                             <h1 className="font-bold py-2">Arrives Mon, 27 Mar - Wed, 12 Apr</h1>
                             <div className="flex">
                                 <Image
