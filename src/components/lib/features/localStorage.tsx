@@ -1,3 +1,4 @@
+"use client"
 // import { UserInfo, UserInfoState } from './userInfo/userInfoSlice';
 import { UserInfoState } from './userInfo/userInfoSlice';
 import { CartState } from './cart/cartSlice';
