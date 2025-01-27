@@ -10,6 +10,7 @@ import { RootState } from '../lib/store'
 // import { dataTypeInnerOuter } from "@/app/services/[id]/page";
 import { CartState } from "../lib/features/cart/cartSlice";
 import { urlFor } from "@/sanity/lib/image";
+import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
 
 
 // interface cartType {
@@ -44,6 +45,20 @@ const CheckoutComponent = () => {
     //     return <div className="loader absolute left-0 ml-2 border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>;
     // }
 
+    const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
+
+    const submitCart = () => {
+        const allInOne = {
+            name: userInfo?.firstname + " " + userInfo?.lastname,
+            city_available: "Karachi",
+            price: cartInfo[0]?.obj.productName[0].price,
+            agent_chosen: "I'm",
+            time: cartInfo[0]?.day + " - " + cartInfo[0]?.hour,
+            selected_services_list: cartInfo[0]?.obj.productName
+        };
+        console.log('...., submited Cart ,...', allInOne)
+    }
+
     return (
         <div className="flex flex-col">
             <div className="flex flex-col lg:flex-row p-6 space-x-12">
@@ -56,7 +71,9 @@ const CheckoutComponent = () => {
                         of clearing customs (including sharing it with customs officials) for all orders and returns. If your KYC does not match your shipping
                         address, please click the link for more information. Learn More
                     </p>
-                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center">
+                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
+                        onClick={submitCart}
+                    >
                         <BsInboxFill />
                         <p className="ml-2">Deliver it</p>
                     </button>
