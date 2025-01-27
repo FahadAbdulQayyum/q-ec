@@ -8,8 +8,10 @@ import { useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { pushCart } from "@/components/lib/features/cart/cartSlice";
 import { ImLocation } from "react-icons/im";
+import { v4 as uuidv4 } from 'uuid';
 
 export type dataTypeInnerOuter = {
+  _key?: string;
   _id: string;
   name: string;
   variation: string;
@@ -34,6 +36,8 @@ const FetchingSanityDataById = () => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (productName: dataTypeInnerOuter) => {
+    productName._key = uuidv4();
+
     dispatch(pushCart({ productName }));
   };
 

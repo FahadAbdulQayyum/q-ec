@@ -1,5 +1,5 @@
 "use client";
-
+import { v4 as uuidv4 } from 'uuid';
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
@@ -22,10 +22,11 @@ const ProductDetail: React.FC = () => {
   if (!product) return <p>Loading...</p>;
 
   const handleAddToCart = (product: any) => {
+    product._key = uuidv4();
     dispatch(addProduct(product));
 
     console.log('product...', product)
-    console.log('products...',  products)
+    console.log('products...', products)
   }
 
   return (

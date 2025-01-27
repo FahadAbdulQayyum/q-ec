@@ -22,6 +22,7 @@ const productSlice = createSlice({
     reducers: {
         // Add a product to the array
         addProduct: (state, action: PayloadAction<ProductType>) => {
+            console.log('...action.pyaload...', action.payload);
             state.products.push(action.payload);
         },
 
