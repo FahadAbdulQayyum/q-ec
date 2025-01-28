@@ -161,7 +161,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 setLoading(false)
                 console.log('...resp.data...', resp.data)
                 dispatch(initializeUserInfo(resp.data[0]));
-                router.push('/wow')
+                router.push('/')
             } catch (err) {
                 console.error('Fetch error:', err)
                 setLoading(false)
