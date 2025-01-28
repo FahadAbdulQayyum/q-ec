@@ -50,13 +50,13 @@ const UpperBanner = () => {
     useEffect(() => {
         // Redirect once the data is fetched and user info exists
         if (isFetched && userInfo) {
-            router.push("/"); // Redirect to the home page
             console.log('userInfo...', userInfo);
             console.log("Redirecting to home...");
+            return router.push("/"); // Redirect to the home page
         }
         else {
-            router.push("/Sign/In"); // Redirect to the home page
             console.log("Redirecting to sign-in...");
+            return router.push("/Sign/In"); // Redirect to the home page
         }
     }, [isFetched, userInfo, router]);
 
