@@ -52,10 +52,10 @@ const CheckoutComponent = () => {
         const allInOne = {
             name: userInfo?.firstname + " " + userInfo?.lastname,
             city_available: "Karachi",
-            price: cartInfo[0]?.obj.productName[0].price,
+            price: cartInfo[0]?.obj?.productName[0]?.price,
             agent_chosen: "I'm",
             time: cartInfo[0]?.day + " - " + cartInfo[0]?.hour,
-            selected_services_list: cartInfo[0]?.obj.productName
+            selected_services_list: cartInfo[0]?.obj?.productName
         };
         console.log('...., submited Cart ,...', allInOne)
         const result = await client.create({
@@ -161,7 +161,7 @@ const CheckoutComponent = () => {
                             <h1 className="font-bold mb-4">Order Summary</h1>
                             <div className="flex w-full justify-between">
                                 <p>Subtotal</p>
-                                <p>₹ {v.obj.productName[0].price}</p>
+                                <p>₹ {v?.obj?.productName[0]?.price}</p>
                             </div>
                             <div className="flex w-full justify-between">
                                 <p>Delivery & Shipping</p>
@@ -170,7 +170,7 @@ const CheckoutComponent = () => {
                             <div className="border-b w-full h-1 my-4"></div>
                             <div className="flex w-full justify-between">
                                 <p>Total</p>
-                                <p>₹ {v.obj.productName[0].price}</p>
+                                <p>₹ {v?.obj?.productName[0]?.price}</p>
                             </div>
                             <div className="border-b w-full h-1 my-4"></div>
 

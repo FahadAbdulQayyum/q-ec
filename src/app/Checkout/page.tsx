@@ -1,5 +1,3 @@
-"use client"
-
 import CheckoutComponent from '@/components/CheckoutComponent'
 
 const Checkout = () => {
