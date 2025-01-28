@@ -12,12 +12,14 @@ import { useRouter } from "next/navigation"
 
 import { useAppDispatch } from '@/components/lib/hooks'
 import { initializeUserInfo } from "../lib/features/userInfo/userInfoSlice";
+import { URL } from "@/app/TimeBox/constant";
 
 interface SignProps {
     signup: boolean;
 }
 
 const Sign: React.FC<SignProps> = ({ signup }) => {
+
 
     const [gender, setGender] = useState<string>('male');
     const [loading, setLoading] = useState<boolean>(false);
@@ -70,7 +72,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         if (signup) {
             try {
                 // const response = await fetch('http://localhost:3000/api/signup', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
-                const response = await fetch(`${process.env.URL}/api/signup`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+                const response = await fetch(`${URL}/api/signup`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
                 console.log('...response....', response);
 
                 if (!response.ok) {
@@ -123,7 +125,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
             try {
                 const formDataForSignIn = { email: formData.email, password: formData.password }
                 // const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
-                const response = await fetch(`${process.env.URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                // const response = await fetch(`${process.env.URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                const response = await fetch(`${URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
                 if (!response.ok) {
                     const error = await response.json();
                     console.error('Error:', error.error || 'Something went wrong');
