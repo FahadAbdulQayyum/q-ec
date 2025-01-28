@@ -38,7 +38,7 @@ const ContactUsComponent = () => {
                     </span>
                 </span>
                 <h1 className="font-bold text-2xl items-start w-full">WHAT PAYMENT OPTIONS CAN I USE ON Bendat ORDERS?</h1>
-                <p>We want to make buying your favourite Bendat shoes and gear online fast and easy, and we accept the following payment options:</p>
+                <p>We want to make buying your favourite Bendat Fashion and gear online fast and easy, and we accept the following payment options:</p>
                 <span className="pl-2">
                     <p>Visa, Mastercard, Diners Club, Discover, American Express, Visa Electron, Maestro</p>
                     <p>If you enter your PAN information at checkout, you&apos;ll be able to pay for your order with PayTM or a local credit or debit card.</p>

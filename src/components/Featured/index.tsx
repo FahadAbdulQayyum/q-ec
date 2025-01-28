@@ -9,7 +9,7 @@ const Featured: React.FC = () => {
             <div className="relative h-screen">
                 <Image
                     src="/assets/featured.svg"
-                    alt="Featured product with a pair of shoes"
+                    alt="Featured product with a pair of Fashion"
                     layout="fill" // Makes the image fill its parent container
                     objectFit="cover" // Ensures the image covers the container
                     priority // Ensures the hero image is loaded quickly
