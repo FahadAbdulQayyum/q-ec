@@ -48,14 +48,20 @@ const UpperBanner = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (isFetched) {
-            if (userInfo) {
-                console.log("User info exists, staying on home...");
-            } else {
-                console.log("User info missing, redirecting to sign-in...");
-                router.push("/Sign/In");
+        const handleRedirect = async () => {
+            if (isFetched) {
+                if (userInfo) {
+                    console.log("Redirecting to home...");
+                    await router.push("/");
+                } else {
+                    console.log("Redirecting to sign-in...");
+                    await router.push("/Sign/In");
+                }
             }
-        }
+        };
+
+        handleRedirect(); // Call the async function
+
     }, [isFetched, userInfo, router]);
 
     if (!isHydrated || !isFetched) {
