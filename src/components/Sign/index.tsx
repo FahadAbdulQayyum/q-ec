@@ -126,7 +126,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 const formDataForSignIn = { email: formData.email, password: formData.password }
                 // const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
                 // const response = await fetch(`${process.env.URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
-                const response = await fetch(`${URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                const response = await fetch(`/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                // const response = await fetch(`${URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
                 if (!response.ok) {
                     const error = await response.json();
                     console.error('Error:', error.error || 'Something went wrong');
