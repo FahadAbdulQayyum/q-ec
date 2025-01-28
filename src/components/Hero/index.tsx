@@ -15,8 +15,21 @@ const Hero: React.FC = () => {
 
     // const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
 
+    const [loading, setLoading] = React.useState(false);
+
     const router = useRouter();
 
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen relative">
+            <div className="loader  border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>
+        </div>;
+    }
+
+    const goToBooking = () => {
+        setLoading(true);
+        router.push('/Location');
+        setLoading(false);
+    }
 
     return (
         <div className="relative h-screen overflow-hidden mx-standardSize">
@@ -38,11 +51,11 @@ const Hero: React.FC = () => {
                     Welcome to Our Store
                 </h1>
                 <p className="mt-4 text-lg md:text-xl lg:text-2xl">
-                    Explore the latest collection of Bendat Fash
+                    Explore the latest collection of Bendat Fashion
                 </p>
                 <button
                     className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm md:text-base lg:text-lg"
-                    onClick={() => router.push('/Location')}
+                    onClick={goToBooking}
                 >
                     Book Now
                 </button>
