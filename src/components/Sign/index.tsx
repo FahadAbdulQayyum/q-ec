@@ -69,7 +69,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         }
         if (signup) {
             try {
-                const response = await fetch('http://localhost:3000/api/signup', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+                // const response = await fetch('http://localhost:3000/api/signup', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
+                const response = await fetch(`${process.env.URL}/api/signup`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
                 console.log('...response....', response);
 
                 if (!response.ok) {
@@ -121,7 +122,8 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
         } else {
             try {
                 const formDataForSignIn = { email: formData.email, password: formData.password }
-                const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                // const response = await fetch('http://localhost:3000/api/signin', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
+                const response = await fetch(`${process.env.URL}/api/signin`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formDataForSignIn) })
                 if (!response.ok) {
                     const error = await response.json();
                     console.error('Error:', error.error || 'Something went wrong');
