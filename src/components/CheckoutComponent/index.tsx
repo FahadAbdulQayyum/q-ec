@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { BsInboxFill } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
 
+import { useToast } from "@/hooks/use-toast"
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../lib/store'
@@ -24,6 +25,7 @@ import { client } from "@/sanity/lib/client";
 
 const CheckoutComponent = () => {
 
+    const { toast } = useToast()
     // const [cartInfo, setCartInfo] = useState<cartType[]>([])
     // const [cartInfo, setCartInfo] = useState<CartState[]>([])
     const [cartInfo, setCartInfo] = useState<CartState[]>([])
@@ -62,6 +64,11 @@ const CheckoutComponent = () => {
             _type: "job",
             ...allInOne
         });
+        toast(
+            {
+                title: "Succssfully!",
+                description: "Your cart added successfully!",
+            })
         console.log('!...result...!', result);
     }
 
