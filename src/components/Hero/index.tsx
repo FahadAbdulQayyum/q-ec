@@ -22,7 +22,8 @@ const Hero: React.FC = () => {
         <div className="relative h-screen overflow-hidden mx-standardSize">
             {/* The hero image will cover the full container */}
             <Image
-                src="/assets/hero-image.svg"
+                // src="/assets/hero-image.svg"
+                src="/assets/download.avif"
                 alt="Hero Image"
                 layout="fill"
                 objectFit="cover"
