@@ -47,16 +47,18 @@ const UpperBanner = () => {
         fetchUserInfo();
     }, [dispatch]);
 
-    // useEffect(() => {
-    //     // Redirect once the data is fetched and user info exists
-    //     if (isFetched && userInfo) {
-    //         router.push("/"); // Redirect to the home page
-    //         console.log('userInfo...', userInfo);
-    //     }
-    //     else {
-    //         router.push("/Sign/In"); // Redirect to the home page
-    //     }
-    // }, [isFetched, userInfo, router]);
+    useEffect(() => {
+        // Redirect once the data is fetched and user info exists
+        if (isFetched && userInfo) {
+            router.push("/"); // Redirect to the home page
+            console.log('userInfo...', userInfo);
+            console.log("Redirecting to home...");
+        }
+        else {
+            router.push("/Sign/In"); // Redirect to the home page
+            console.log("Redirecting to sign-in...");
+        }
+    }, [isFetched, userInfo, router]);
 
     if (!isHydrated || !isFetched) {
         // Render nothing or a loading placeholder during hydration or data fetching
