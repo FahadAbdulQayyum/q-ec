@@ -60,7 +60,7 @@ const UpperBanner = () => {
             }
         };
 
-        handleRedirect(); // Call the async function
+        // handleRedirect(); // Call the async function
 
     }, [isFetched, userInfo, router]);
 
