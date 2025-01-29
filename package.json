@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "cypress:open": "cypress open",
-  "cypress:run": "cypress run"
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.2",
