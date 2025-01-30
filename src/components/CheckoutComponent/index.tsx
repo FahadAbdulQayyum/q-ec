@@ -81,7 +81,6 @@ const CheckoutComponent = () => {
             quantity: 1,
             image: urlFor(v?.pic)?.url()
         }))
-        console.log('products....', products)
         try {
             const response = await fetch("/api/checkout", {
                 method: "POST",
