@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsInboxFill } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
+import { IoCard } from "react-icons/io5";
 
 import { useToast } from "@/hooks/use-toast"
 
@@ -72,6 +73,36 @@ const CheckoutComponent = () => {
         console.log('!...result...!', result);
     }
 
+    const payBill = async () => {
+        // setLoading(true);
+        const products = cartInfo[0]?.obj?.productName.map(v => ({
+            name: v.name,
+            price: v.price,
+            quantity: 1,
+            image: urlFor(v?.pic)?.url()
+        }))
+        console.log('products....', products)
+        try {
+            const response = await fetch("/api/checkout", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ products }),
+            });
+
+            const data = await response.json();
+            if (data.url) {
+                window.location.href = data.url; // Redirect to Stripe Checkout
+            } else {
+                alert("Payment failed!");
+            }
+        } catch (error) {
+            console.error("Checkout error:", error);
+        } finally {
+            // setLoading(false);
+        }
+    }
+    // }
+
     return (
         <div className="flex flex-col">
             <div className="flex flex-col lg:flex-row p-6 space-x-12">
@@ -84,6 +115,12 @@ const CheckoutComponent = () => {
                         of clearing customs (including sharing it with customs officials) for all orders and returns. If your KYC does not match your shipping
                         address, please click the link for more information. Learn More
                     </p>
+                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
+                        onClick={payBill}
+                    >
+                        <IoCard />
+                        <p className="ml-2">Pay</p>
+                    </button>
                     <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
                         onClick={submitCart}
                     >
