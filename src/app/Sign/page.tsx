@@ -8,7 +8,10 @@ const Sign = () => {
     const router = useRouter();
 
     useEffect(() => {
-        router.push(`/Sign/in`);
+        const goToSign = async () => {
+            await router.push(`/Sign/in`);
+        }
+        goToSign();
     }, [router])
 
     return null;
