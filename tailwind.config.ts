@@ -74,8 +74,19 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+  		},
+		  keyframes: {
+			lineLoader: {
+			  "0%": { width: "0%" },
+			  "100%": { width: "100%" },
+			},
+		  },
+		  animation: {
+			lineLoader: "lineLoader 2s linear infinite", // Adjust duration as needed
+		  },
+		// },
+		// },
+	}
   },
   plugins: [require("tailwindcss-animate")],
 };
