@@ -416,9 +416,9 @@ const Products = () => {
 
     const router = useRouter();
 
-    const handleImageClick = (product: ProductType) => {
+    const handleImageClick = async (product: ProductType) => {
         const queryString = encodeURIComponent(JSON.stringify(product));
-        router.push(`/Products/${product.id}?data=${queryString}`);
+        await router.push(`/Products/${product.id}?data=${queryString}`);
     };
 
     return (
