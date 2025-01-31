@@ -28,35 +28,37 @@ const UpperBanner = () => {
 
     // On app start, check if user info exists in localStorage
     useEffect(() => {
+const checkHydrate = async () => {
+    
+    setIsHydrated(true); // Set hydrated to true after the client has rendered
 
-        setIsHydrated(true); // Set hydrated to true after the client has rendered
-
-        // const storedUserInfo = localStorage.getItem("userInfo");
-        // if (storedUserInfo) {
-        //     dispatch(initializeUserInfo(JSON.parse(storedUserInfo)));
-        //     console.log('....KKK....')
-        //     // router.push('http://localhost:3000/about');
-        //     console.log("User info found. Redirecting...");
-        //     router.push("/"); // Redirect to home page
-        // } else {
-        //     console.log("No user info found in localStorage.");
-        // }
-        if (isHydrated) {
-            const storedUserInfo = localStorage.getItem("userInfo");
-            console.log("Stored userInfo:", storedUserInfo);
-            if (storedUserInfo) {
-                try {
-                    const parsedUserInfo = JSON.parse(storedUserInfo);
-                    console.log("Parsed userInfo:", parsedUserInfo);
-                    dispatch(initializeUserInfo(parsedUserInfo));
-                    router.push("/");
-                } catch (err) {
-                    console.error("Failed to parse userInfo:", err);
-                }
-            } else {
-                console.log("No user info found in localStorage.");
+    // const storedUserInfo = localStorage.getItem("userInfo");
+    // if (storedUserInfo) {
+    //     dispatch(initializeUserInfo(JSON.parse(storedUserInfo)));
+    //     console.log('....KKK....')
+    //     // router.push('http://localhost:3000/about');
+    //     console.log("User info found. Redirecting...");
+    //     router.push("/"); // Redirect to home page
+    // } else {
+    //     console.log("No user info found in localStorage.");
+    // }
+    if (isHydrated) {
+        const storedUserInfo = localStorage.getItem("userInfo");
+        console.log("Stored userInfo:", storedUserInfo);
+        if (storedUserInfo) {
+            try {
+                const parsedUserInfo = JSON.parse(storedUserInfo);
+                console.log("Parsed userInfo:", parsedUserInfo);
+                dispatch(initializeUserInfo(parsedUserInfo));
+                await router.push("/");
+            } catch (err) {
+                console.error("Failed to parse userInfo:", err);
             }
+        } else {
+            console.log("No user info found in localStorage.");
         }
+    }
+}
     }, [isHydrated, dispatch, router]);
 
     if (!isHydrated) {
