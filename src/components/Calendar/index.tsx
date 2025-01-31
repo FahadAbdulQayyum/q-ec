@@ -26,10 +26,10 @@ const Calendar: React.FC = () => {
 
     }
 
-    const hourSelected = (hour: number) => {
+    const hourSelected = async (hour: number) => {
         console.log('...hour...', hour);
         dispatch(pushCart({ hour }));
-        router.push('/Checkout')
+        await router.push('/Checkout')
     }
 
     return (
