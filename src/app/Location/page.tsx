@@ -35,12 +35,12 @@ const Location = () => {
         }
     }, [searchTerm, location]);
 
-    const handleLocationClick = (name: string) => {
+    const handleLocationClick = async (name: string) => {
         setSearchTerm(name);
         setLoading(true);
         // setTimeout(() => {
         // setLoading(false);
-        router.push(`/services?address=${JSON.stringify(name)}`);
+        await router.push(`/services?address=${JSON.stringify(name)}`);
         // }, 5000);
     };
 
