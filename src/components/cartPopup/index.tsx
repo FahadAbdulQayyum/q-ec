@@ -10,6 +10,7 @@ const CartPopup = () => {
 
     const [loading, setLoading] = useState(false);
     const [goToNextPage, setGoToNextPage] = useState(false);
+    const [currentPath, setCurrentPath] = useState<string | null>(null);
 
     const cart = useSelector((state: RootState) => state.cart.obj.productName);
 
@@ -20,9 +21,19 @@ const CartPopup = () => {
     //     return acc;
     // }, {});
 
+
+    // useEffect(() => {
+    //     window.location.pathname === 'TimeBox' ? setGoToNextPage(false) : setGoToNextPage(true);
+    // }, [window.location])
+
+
     useEffect(() => {
-        window.location.pathname === 'TimeBox' ? setGoToNextPage(false) : setGoToNextPage(true);
-    }, [window.location])
+        if (typeof window !== "undefined") {
+            setCurrentPath(window.location.pathname);
+            setGoToNextPage(window.location.pathname !== '/TimeBox'); // Ensure correct path
+        }
+    }, []);
+
 
     const productCount = cart.reduce<{ [key: string]: number }>((acc, product) => {
         const key = product.name; // Use 'name' or any other unique string property
