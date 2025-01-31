@@ -12,7 +12,6 @@ export const loadState = () => {
         const serializedState = localStorage.getItem("reduxState");
         if (serializedState === null) return undefined; // Return undefined if no state is saved
         return JSON.parse(serializedState) as {
-            // userInfo: { userInfo: UserInfo | null; userInfos: UserInfo[]; userInfoFiltered: UserInfo[]; };
             // userInfo: { userInfo: UserInfo };
             userInfo: UserInfoState;
             cart: CartState;
