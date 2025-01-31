@@ -25,10 +25,12 @@ const Hero: React.FC = () => {
         </div>;
     }
 
-    const goToBooking = () => {
+    const goToBooking = async () => {
+        console.log('... goToBooking started...')
         setLoading(true);
-        router.push('/Location');
+        await router.push('/Location');
         setLoading(false);
+        console.log('... goToBooking ended...')
     }
 
     return (
