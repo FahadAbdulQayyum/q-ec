@@ -8,7 +8,8 @@ import { ProductState } from './product/productSlice';
 import { ServiceState } from './service/serviceSlice';
 export const loadState = () => {
     try {
-        const serializedState = localStorage.getItem('reduxState');
+        if (typeof window === "undefined") return undefined; // Ensure we're in a browser
+        const serializedState = localStorage.getItem("reduxState");
         if (serializedState === null) return undefined; // Return undefined if no state is saved
         return JSON.parse(serializedState) as {
             // userInfo: { userInfo: UserInfo | null; userInfos: UserInfo[]; userInfoFiltered: UserInfo[]; };
