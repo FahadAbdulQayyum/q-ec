@@ -70,7 +70,6 @@ const CheckoutComponent = () => {
                 title: "Succssfully!",
                 description: "Your cart added successfully!",
             })
-        console.log('!...result...!', result);
     }
 
     const payBill = async () => {
