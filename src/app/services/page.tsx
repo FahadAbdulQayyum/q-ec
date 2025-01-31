@@ -68,8 +68,10 @@ const FetchingSanityData = () => {
         </div>;
     }
 
-    const handleRouter = (service: any) => {
-        router.push(`/services/${service._id}?data=${service._id}`)
+    const handleRouter = async (service: any) => {
+        setLoading(true);
+        await router.push(`/services/${service._id}?data=${service._id}`)
+        setLoading(false);
     }
 
     return (
