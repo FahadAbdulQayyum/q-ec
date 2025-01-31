@@ -117,7 +117,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     if (countryRef.current) countryRef.current.value = "";
                 }
                 setLoading(false);
-                router.push('/Sign/In')
+                await router.push('/Sign/In')
             } catch (err) {
                 console.error('Fetch error:', err)
             }
@@ -162,7 +162,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                 setLoading(false)
                 console.log('...resp.data...', resp.data)
                 dispatch(initializeUserInfo(resp.data[0]));
-                router.push('/')
+                await router.push('/')
             } catch (err) {
                 console.error('Fetch error:', err)
                 setLoading(false)
