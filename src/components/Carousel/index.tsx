@@ -60,10 +60,10 @@ export function CarouselImage({ flash, essential, data }: CarouselImageProps) {
 
     const router = useRouter();
 
-    const sendData = (product: any) => {
+    const sendData = async (product: any) => {
         console.log('products...', product)
         const queryString = encodeURIComponent(JSON.stringify(product));
-        router.push(`/Products/${product.id}?data=${queryString}`);
+        await router.push(`/Products/${product.id}?data=${queryString}`);
     }
 
     return (
