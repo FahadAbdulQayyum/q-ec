@@ -117,13 +117,13 @@ const CheckoutComponent = () => {
                         onClick={payBill}
                     >
                         <IoCard />
-                        <p className="ml-2">Pay</p>
+                        <p className="ml-2">Pay Bill</p>
                     </button>
                     <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
                         onClick={submitCart}
                     >
                         <BsInboxFill />
-                        <p className="ml-2">Deliver it</p>
+                        <p className="ml-2">Book Order</p>
                     </button>
 
                     {/* Address Fields */}
