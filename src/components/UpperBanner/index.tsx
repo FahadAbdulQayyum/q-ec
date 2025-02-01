@@ -457,6 +457,8 @@ const UpperBanner = () => {
     const [isFetched, setIsFetched] = useState(false); // Track if data fetching is complete
     const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
 
+    const loading = useSelector((state: RootState) => state.loading.loading);
+
     useEffect(() => {
         setIsHydrated(true); // Mark hydration as complete
 
