@@ -7,6 +7,7 @@ import serviceReducer from './features/service/serviceSlice';
 import locationReducer from './features/location/locationSlice';
 // import dynamicApiCallReducer from './features/dynamicApiCall/dynamicAPISlice';
 import userInfoReducer, { UserInfoState } from './features/userInfo/userInfoSlice';
+import loaderReducer from './features/loader/loaderSlice';
 import { loadState, saveState } from './features/localStorage';
 
 // Load persisted state from localStorage
@@ -37,6 +38,7 @@ export const makeStore = () => {
             service: serviceReducer,
             // dynamicApiCall: dynamicApiCallReducer,
             userInfo: userInfoReducer,
+            loading: loaderReducer
         },
         preloadedState, // Initialize store with persisted state
     });
