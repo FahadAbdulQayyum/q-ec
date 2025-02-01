@@ -40,7 +40,7 @@ const CartPopup = () => {
 
     const goToNext = async () => {
         setLoading(true);
-        await router.push(`${goToNextPage ? '/Checkout' : '/TimeBox'}`)
+        await router.push(`${!goToNextPage ? '/Checkout' : '/TimeBox'}`)
         setLoading(false);
     }
 
