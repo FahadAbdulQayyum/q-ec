@@ -3,7 +3,7 @@ import CheckoutComponent from '@/components/CheckoutComponent'
 const Checkout = () => {
     return (
         <div>
-            <CheckoutComponent />
+            <CheckoutComponent btn="Pay Bill" />
         </div>
     )
 }
