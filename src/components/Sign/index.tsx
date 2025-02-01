@@ -113,6 +113,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     if (genderRef.current) genderRef.current.value = "";
                     if (countryRef.current) countryRef.current.value = "";
                 }
+
                 setLoading(false);
                 await router.push('/Sign/In')
             } catch (err) {
@@ -135,6 +136,14 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                                 variant: "destructive",
                                 title: "Invalid!",
                                 description: error.details.map((v: any, index: number) => <small key={index} style={{ display: 'block' }}>{v.message}</small>),
+                            })
+                        setLoading(false);
+                    } else if (!error.sucess) {
+                        toast(
+                            {
+                                variant: "destructive",
+                                title: "Invalid!",
+                                description: error.msg,
                             })
                         setLoading(false);
                     }
@@ -255,6 +264,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     </Button>
                     : <button
                         className="bg-black w-full max-w-md text-white py-2 rounded uppercase"
+                        type="submit"
                     >{signup ? "Join Us" : "Sign in"}</button>}
                 <div className="flex text-sm text-gray-400">
                     <p>{signup ? "Already a Member?" : "Not a Member?"}</p>
