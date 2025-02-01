@@ -24,7 +24,6 @@ const initialState: ProductState = {
 interface FetchedProduct {
     _id: string;
     post_title: string;
-    // ...other properties if needed...
 }
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts', async () => {

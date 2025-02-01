@@ -1,6 +1,5 @@
 "use client"
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-// import { AppStore } from '../../store';
 
 export interface CounterState {
     value: number;
@@ -31,11 +30,8 @@ const counterSlice = createSlice({
             state.value -= 1;
         },
         decrement: (state, action) => {
-            console.log('action.payload...', action.payload)
-            console.log('state.obj.productName...', state.obj)
             state.obj.productName = []
             state.obj.productName.push(...action.payload)
-            console.log('staet.obj.productName...', state.obj.productName)
         },
     },
 });

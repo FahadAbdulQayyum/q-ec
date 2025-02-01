@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-// import { useRouter } from 'next/router';
 import { useRouter } from 'next/navigation';
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,7 +60,6 @@ export function CarouselImage({ flash, essential, data }: CarouselImageProps) {
     const router = useRouter();
 
     const sendData = async (product: any) => {
-        console.log('products...', product)
         const queryString = encodeURIComponent(JSON.stringify(product));
         await router.push(`/Products/${product.id}?data=${queryString}`);
     }
@@ -142,7 +140,6 @@ export function CarouselImage({ flash, essential, data }: CarouselImageProps) {
                             <div className="flex justify-center items-center group">
                                 <CardContent className="flex items-center justify-center text-black bg-transparent">
                                     <div
-                                        // className="relative h-80 w-full max-w-xs md:max-w-md"
                                         className="relative h-80 w-72"
                                     >
                                         <Image

@@ -16,17 +16,6 @@ const CartPopup = () => {
 
     const router = useRouter();
 
-    // const productCount = cart.reduce((acc: { [key: string]: number }, product: string) => {
-    //     acc[product] = (acc[product] || 0) + 1;
-    //     return acc;
-    // }, {});
-
-
-    // useEffect(() => {
-    //     window.location.pathname === 'TimeBox' ? setGoToNextPage(false) : setGoToNextPage(true);
-    // }, [window.location])
-
-
     useEffect(() => {
         if (typeof window !== "undefined") {
             setCurrentPath(window.location.pathname);
@@ -41,14 +30,6 @@ const CartPopup = () => {
         return acc;
     }, {});
 
-    // const productCount = cart.reduce<{ [key: string]: number }>((acc, product) => {
-    //     acc[product] = (acc[product] || 0) + 1;
-    //     return acc;
-    // }, {});
-
-    // console.log('cart....', cart)
-
-    // const totalPrice = cart.length * 10; // Assuming each product costs $10
     const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
     if (loading) {
@@ -67,7 +48,6 @@ const CartPopup = () => {
         {cart.length &&
             <div className="bg-blue-500 text-white fixed bottom-4 left-4 rounded-lg">
                 <div className="text-white p-2">
-                    {/*/ <h2 className="text-xl font-semibold mb-4">Cart</h2> */}
                     <ul>
                         {Object.entries(productCount).map(([product, count]) => (
                             <div key={product} className="flex justify-between align-center w-[280px] px-5">
@@ -94,4 +74,3 @@ const CartPopup = () => {
 }
 
 export default CartPopup;
-

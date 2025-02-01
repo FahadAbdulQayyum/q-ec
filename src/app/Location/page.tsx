@@ -38,10 +38,7 @@ const Location = () => {
     const handleLocationClick = async (name: string) => {
         setSearchTerm(name);
         setLoading(true);
-        // setTimeout(() => {
-        // setLoading(false);
         await router.push(`/services?address=${JSON.stringify(name)}`);
-        // }, 5000);
     };
 
     return (
@@ -61,7 +58,6 @@ const Location = () => {
                 {filteredLocation?.map((v: locationType, i: number) => (
                     <div
                         key={i}
-                        // className="flex flex-col px-[33px] bg-white hover:bg-gray-200 cursor-pointer py-2"
                         className="flex flex-col w-[242px] bg-white hover:bg-gray-200 cursor-pointer p-2"
                         onClick={() => handleLocationClick(v.name)}
                     >

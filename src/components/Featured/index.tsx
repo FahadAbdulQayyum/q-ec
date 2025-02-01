@@ -4,7 +4,6 @@ import Image from "next/image";
 const Featured: React.FC = () => {
     return (
         <div className="p-standardSize">
-            {/* <h1 className="font-bold text-xl mb-5">Featured</h1> */}
             <h1 className="text-xl font-medium font-sans mb-4">Featured</h1>
             <div className="relative h-screen">
                 <Image

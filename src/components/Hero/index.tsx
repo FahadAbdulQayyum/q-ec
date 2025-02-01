@@ -2,9 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-// import { useSelector, useDispatch } from "react-redux";
-// import { RootState, AppDispatch } from "../lib/store";
-
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../lib/store";
 
@@ -13,8 +10,6 @@ import { setLoading } from "../lib/features/loader/loaderSlice";
 
 
 const Hero: React.FC = () => {
-
-    // const count = useSelector((state: RootState) => state.counter.value)
 
     const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
 
@@ -29,20 +24,17 @@ const Hero: React.FC = () => {
     }
 
     const goToBooking = async () => {
-        console.log('... goToBooking started...')
         dispatch(setLoading(true));
         setLoadingg(true);
         await router.push('/Location');
         setLoadingg(false);
         dispatch(setLoading(false));
-        console.log('... goToBooking ended...')
     }
 
     return (
         <div className="relative h-screen overflow-hidden mx-standardSize">
             {/* The hero image will cover the full container */}
             <Image
-                // src="/assets/hero-image.svg"
                 src="/assets/download.avif"
                 alt="Hero Image"
                 layout="fill"
@@ -66,10 +58,6 @@ const Hero: React.FC = () => {
                 >
                     Book Now
                 </button>
-                {/* <div>
-                    <h1>{count}</h1>
-                    <button onClick={() => dispatch(incrementValue())}>Increment</button>
-                </div> */}
             </div>
         </div >
     );

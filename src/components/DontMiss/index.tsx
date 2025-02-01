@@ -4,7 +4,6 @@ import Image from "next/image";
 const DontMiss: React.FC = () => {
     return (
         <div className="px-4 sm:px-8 md:px-12"> {/* Adjust padding for responsiveness */}
-            {/* <h1 className="font-bold text-xl mb-5">Don&apos;t Miss</h1> */}
             <h1 className="text-xl font-medium font-sans mb-4">Don&apos;t Miss</h1>
             <div className="relative h-screen">
                 <Image

@@ -24,7 +24,6 @@ const initialState: LocationState = {
 interface FetchedLocation {
     _id: string;
     name: string;
-    // ...other properties if needed...
 }
 
 export const fetchLocations = createAsyncThunk('product/fetchProducts', async () => {

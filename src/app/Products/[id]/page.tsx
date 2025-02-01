@@ -24,9 +24,6 @@ const ProductDetail: React.FC = () => {
   const handleAddToCart = (product: any) => {
     product._key = uuidv4();
     dispatch(addProduct(product));
-
-    console.log('product...', product)
-    console.log('products...', products)
   }
 
   return (

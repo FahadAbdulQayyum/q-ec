@@ -73,7 +73,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
             try {
                 // const response = await fetch('http://localhost:3000/api/signup', { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
                 const response = await fetch(`${URL}/api/signup`, { method: 'POST', headers: { 'Content-Type': 'appliction/json' }, body: JSON.stringify(formData) })
-                console.log('...response....', response);
 
                 if (!response.ok) {
                     const error = await response.json();
@@ -91,9 +90,7 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                     return;
                 }
                 const data = await response.json();
-                console.log('...data....', data);
                 if (data.details) {
-                    console.log('...data.details...');
                     toast(
                         {
                             variant: "destructive",
@@ -160,7 +157,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                         description: resp.msg
                     })
                 setLoading(false)
-                console.log('...resp.data...', resp.data)
                 dispatch(initializeUserInfo(resp.data[0]));
                 await router.push('/')
             } catch (err) {
@@ -171,7 +167,6 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
     }
 
     const specifyGender = (gender: string) => {
-        console.log('gender...', gender);
         setGender(gender)
     }
 

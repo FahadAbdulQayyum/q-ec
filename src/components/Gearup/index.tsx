@@ -7,15 +7,11 @@ const GearUp = () => {
         <div className="p-standardSize flex flex-col justify-center space-y-6">
             {/* Section for Title and Buttons */}
             <section className="flex flex-col items-center space-y-6">
-                {/* <h1 className="text-3xl md:text-4xl font-bold font-sans">Gear Up</h1> */}
                 <h1 className="text-xl font-medium font-sans text-left w-full">Gear Up</h1>
-                {/* Buttons */}
                 <div
                     className="flex flex-col sm:flex-row w-full justify-center space-y-4 sm:space-y-0 sm:space-x-4"
-                // className="flex flex-col sm:flex-row w-[8%] justify-center space-y-4 sm:space-y-0 sm:space-x-4 text-right"
                 >
                     <span
-                        // className="w-[20%] sm:w-1/2 py-2 bg-gray-300 text-black rounded-full hover:bg-gray-600"
                         className="flex items-center justify-end font-medium space-x-16 w-full sm:w-1/2 py-2 text-black text-right"
                     >
                         <p>Shop Men&apos;s</p>
@@ -27,7 +23,6 @@ const GearUp = () => {
                     </span>
                     <span
                         className="flex items-center justify-end font-medium space-x-16 w-full sm:w-1/2 py-2 text-black text-right"
-                    // className="w-[20%] sm:w-1/2 py-2 bg-gray-300 text-black rounded-full hover:bg-gray-600"
                     >
                         <p>Shop Women&apos;s</p>
                         <button

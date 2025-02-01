@@ -21,13 +21,11 @@ const Calendar: React.FC = () => {
     };
 
     const dateSelected = (day: number) => {
-        console.log('...day...', day);
         dispatch(pushCart({ day }));
 
     }
 
     const hourSelected = async (hour: number) => {
-        console.log('...hour...', hour);
         dispatch(pushCart({ hour }));
         await router.push('/Checkout')
     }

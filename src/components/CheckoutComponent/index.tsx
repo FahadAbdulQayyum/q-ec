@@ -9,45 +9,22 @@ import { useToast } from "@/hooks/use-toast"
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../lib/store'
-// import { dataTypeInnerOuter } from "@/app/services/[id]/page";
 import { CartState } from "../lib/features/cart/cartSlice";
 import { urlFor } from "@/sanity/lib/image";
 import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
 import { client } from "@/sanity/lib/client";
 
 
-// interface cartType {
-//     // products: dataTypeInnerOuter,
-//     obj: dataTypeInnerOuter,
-//     day: string,
-//     hour: string
-
-// }
-
 const CheckoutComponent = () => {
 
     const { toast } = useToast()
-    // const [cartInfo, setCartInfo] = useState<cartType[]>([])
-    // const [cartInfo, setCartInfo] = useState<CartState[]>([])
     const [cartInfo, setCartInfo] = useState<CartState[]>([])
 
     const cart = useSelector((state: RootState) => state.cart);
     useEffect(() => {
         const { productName } = cart.obj
-        console.log('...cart...', cart);
-        // setCartInfo({ obj: cart.obj, day: cart.day, hour: cart.hour })
-        // setCartInfo([{ obj: cart.obj, day: cart.day, hour: cart.hour }])
         setCartInfo([{ obj: { productName }, day: cart.day, hour: cart.hour }])
     }, [cart])
-
-    // if (cartInfo.length > 0) {
-    //     // return console.log('...v...', cartInfo)
-    //     return console.log('...v...', cartInfo[0].obj.productName)
-    // }
-
-    // if (!cartInfo[0]?.obj) {
-    //     return <div className="loader absolute left-0 ml-2 border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>;
-    // }
 
     const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
 
@@ -60,11 +37,6 @@ const CheckoutComponent = () => {
             time: cartInfo[0]?.day + " - " + cartInfo[0]?.hour,
             selected_services_list: cartInfo[0]?.obj?.productName
         };
-        console.log('...., submited Cart ,...', allInOne)
-        const result = await client.create({
-            _type: "job",
-            ...allInOne
-        });
         toast(
             {
                 title: "Succssfully!",
@@ -99,7 +71,6 @@ const CheckoutComponent = () => {
             // setLoading(false);
         }
     }
-    // }
 
     return (
         <div className="flex flex-col">

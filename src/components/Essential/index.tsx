@@ -13,7 +13,6 @@ const Essential = () => {
 
             {/* Carousel Section */}
             <span
-            // className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400"
             >
                 <CarouselImage
                     flash={true}
@@ -40,13 +39,6 @@ const Essential = () => {
                     ]}
                 />
             </span>
-
-            {/* Optional Button */}
-            {/* <span className="text-center">
-                <button className="bg-tertiary p-4 text-white rounded hover:bg-tertiary-dark transition-all">
-                    View All Products
-                </button>
-            </span> */}
         </div>
     );
 };

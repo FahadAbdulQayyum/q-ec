@@ -74,9 +74,6 @@ const UpperBanner = () => {
 
     return (
         <div className="bg-primary black-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
-            {/* <span className="absolute top-0 left-0 bg-red-600 h-1 w-full">l</span> */}
-
-            {/* <span className="absolute top-0 left-0 h-1 w-0 bg-red-600 animate-lineLoader"></span> */}
 
             {loading && (
                 <span
