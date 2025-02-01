@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../lib/store";
+// import { useSelector, useDispatch } from "react-redux";
+// import { RootState, AppDispatch } from "../lib/store";
+
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../lib/store";
 
 import { setLoading } from "../lib/features/loader/loaderSlice";
 
@@ -28,11 +31,11 @@ const Hero: React.FC = () => {
     const goToBooking = async () => {
         console.log('... goToBooking started...')
         dispatch(setLoading(true));
-        // setLoadingg(true);
-        // await router.push('/Location');
-        // setLoadingg(false);
-        // dispatch(setLoading(false));
-        // console.log('... goToBooking ended...')
+        setLoadingg(true);
+        await router.push('/Location');
+        setLoadingg(false);
+        dispatch(setLoading(false));
+        console.log('... goToBooking ended...')
     }
 
     return (
