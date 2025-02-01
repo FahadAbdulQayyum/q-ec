@@ -15,7 +15,7 @@ import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
 import { client } from "@/sanity/lib/client";
 
 
-const CheckoutComponent = () => {
+const CheckoutComponent = ({ btn }: { btn: string }) => {
 
     const { toast } = useToast()
     const [cartInfo, setCartInfo] = useState<CartState[]>([])
@@ -37,6 +37,11 @@ const CheckoutComponent = () => {
             time: cartInfo[0]?.day + " - " + cartInfo[0]?.hour,
             selected_services_list: cartInfo[0]?.obj?.productName
         };
+        const result = await client.create({
+            _type: "job",
+            ...allInOne
+        });
+        console.log('... result ...', result);
         toast(
             {
                 title: "Succssfully!",
@@ -61,7 +66,12 @@ const CheckoutComponent = () => {
 
             const data = await response.json();
             if (data.url) {
+                // console.log('... data.url ...', data.url)
+                // if (data.url.includes('success')) {
+                //     console.log('Payment is successfully made.')
+                //     submitCart()
                 window.location.href = data.url; // Redirect to Stripe Checkout
+                // }
             } else {
                 alert("Payment failed!");
             }
@@ -84,18 +94,20 @@ const CheckoutComponent = () => {
                         of clearing customs (including sharing it with customs officials) for all orders and returns. If your KYC does not match your shipping
                         address, please click the link for more information. Learn More
                     </p>
-                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
+                    {btn === "Pay Bill" ? <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
                         onClick={payBill}
                     >
                         <IoCard />
                         <p className="ml-2">Pay Bill</p>
                     </button>
-                    <button className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
-                        onClick={submitCart}
-                    >
-                        <BsInboxFill />
-                        <p className="ml-2">Book Order</p>
-                    </button>
+                        :
+                        <button
+                            className="flex border-2 border-black rounded w-full py-3 font-bold text-start px-5 items-center"
+                            onClick={submitCart}
+                        >
+                            <BsInboxFill />
+                            <p className="ml-2">Book Order</p>
+                        </button>}
 
                     {/* Address Fields */}
                     <div className="space-y-2">
