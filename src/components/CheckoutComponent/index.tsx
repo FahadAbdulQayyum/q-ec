@@ -76,7 +76,8 @@ const CheckoutComponent = ({ btn }: { btn: string }) => {
                 // if (data.url.includes('success')) {
                 //     console.log('Payment is successfully made.')
                 //     submitCart()
-                window.location.href = data.url; // Redirect to Stripe Checkout
+                // window.location.href = data.url; // Redirect to Stripe Checkout
+                await router.push(data.url)
                 // }
             } else {
                 alert("Payment failed!");
