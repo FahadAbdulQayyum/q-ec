@@ -77,6 +77,7 @@ const CheckoutComponent = ({ btn }: { btn: string }) => {
                 //     console.log('Payment is successfully made.')
                 //     submitCart()
                 // window.location.href = data.url; // Redirect to Stripe Checkout
+                sessionStorage.setItem("lastRoute", '/CheckoutFinal')
                 await router.push(data.url)
                 // }
             } else {
