@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
 
                 {/* Heart Icon */}
                 <div className="heart">
-                    o                 <CiHeart className="text-2xl" aria-label="Favorites" />
+                    <CiHeart className="text-2xl" aria-label="Favorites" />
                 </div>
 
                 {/* Cart Icon */}
