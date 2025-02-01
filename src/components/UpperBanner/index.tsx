@@ -455,6 +455,7 @@ const UpperBanner = () => {
 
     const [isHydrated, setIsHydrated] = useState(false); // Ensure hydration before accessing localStorage
     const [isFetched, setIsFetched] = useState(false); // Track if data fetching is complete
+    const [loaderWidth, setLoaderWidth] = useState(0);
     const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
 
     const loading = useSelector((state: RootState) => state.loading.loading);
@@ -515,7 +516,14 @@ const UpperBanner = () => {
         <div className="bg-primary black-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
             {/* <span className="absolute top-0 left-0 bg-red-600 h-1 w-full">l</span> */}
 
-            <span className="absolute top-0 left-0 h-1 w-0 bg-red-600 animate-lineLoader"></span>
+            {/* <span className="absolute top-0 left-0 h-1 w-0 bg-red-600 animate-lineLoader"></span> */}
+
+            {loading && (
+                <span
+                    className="absolute top-0 left-0 h-1 bg-red-600 transition-all duration-300"
+                    style={{ width: `${loaderWidth}%` }}
+                ></span>
+            )}
 
             {/* Left Portion */}
             <div className="left-portion flex justify-center md:justify-start mb-2 md:mb-0">
