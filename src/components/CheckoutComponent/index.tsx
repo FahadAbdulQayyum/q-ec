@@ -14,8 +14,12 @@ import { urlFor } from "@/sanity/lib/image";
 import { UserInfo } from "../lib/features/userInfo/userInfoSlice";
 import { client } from "@/sanity/lib/client";
 
+import { useRouter } from 'next/navigation';
+
 
 const CheckoutComponent = ({ btn }: { btn: string }) => {
+
+    const router = useRouter();
 
     const { toast } = useToast()
     const [cartInfo, setCartInfo] = useState<CartState[]>([])
@@ -47,7 +51,8 @@ const CheckoutComponent = ({ btn }: { btn: string }) => {
                 title: "Succssfully!",
                 description: "Your cart added successfully!",
             })
-        window.location.pathname = "/success"
+        // window.location.pathname = "/success"
+        await router.push('/success')
     }
 
     const payBill = async () => {
