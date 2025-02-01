@@ -37,16 +37,17 @@ const CheckoutComponent = ({ btn }: { btn: string }) => {
             time: cartInfo[0]?.day + " - " + cartInfo[0]?.hour,
             selected_services_list: cartInfo[0]?.obj?.productName
         };
-        // const result = await client.create({
-        //     _type: "job",
-        //     ...allInOne
-        // });
-        // console.log('... result ...', result);
+        const result = await client.create({
+            _type: "job",
+            ...allInOne
+        });
+        console.log('... result ...', result);
         toast(
             {
                 title: "Succssfully!",
                 description: "Your cart added successfully!",
             })
+        window.location.pathname = "/success"
     }
 
     const payBill = async () => {
