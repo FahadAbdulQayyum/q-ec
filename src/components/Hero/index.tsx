@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-// import { useSelector, useDispatch } from "react-redux";
-// import { RootState, AppDispatch } from "../lib/store";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../lib/store";
 
-// import { incrementValue } from "../lib/features/counter/counterSlice";
+import { setLoading } from "../lib/features/loader/loaderSlice";
 
 
 
@@ -13,13 +13,13 @@ const Hero: React.FC = () => {
 
     // const count = useSelector((state: RootState) => state.counter.value)
 
-    // const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
+    const dispatch: AppDispatch = useDispatch(); // Use typed dispatch
 
-    const [loading, setLoading] = React.useState(false);
+    const [loadingg, setLoadingg] = React.useState(false);
 
     const router = useRouter();
 
-    if (loading) {
+    if (loadingg) {
         return <div className="flex justify-center items-center h-screen relative">
             <div className="loader  border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>
         </div>;
@@ -27,10 +27,12 @@ const Hero: React.FC = () => {
 
     const goToBooking = async () => {
         console.log('... goToBooking started...')
-        setLoading(true);
-        await router.push('/Location');
-        setLoading(false);
-        console.log('... goToBooking ended...')
+        dispatch(setLoading(true));
+        // setLoadingg(true);
+        // await router.push('/Location');
+        // setLoadingg(false);
+        // dispatch(setLoading(false));
+        // console.log('... goToBooking ended...')
     }
 
     return (
