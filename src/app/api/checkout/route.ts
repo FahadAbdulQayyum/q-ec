@@ -32,7 +32,8 @@ export async function POST(req: Request) {
         },
         quantity: product.quantity,
       })),
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/success`,
+      // success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/success`,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/CheckoutFinal`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/cancel`,
     });
 
