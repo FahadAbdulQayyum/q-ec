@@ -72,7 +72,7 @@ const CheckoutComponent = ({ btn }: { btn: string }) => {
 
             const data = await response.json();
             if (data.url) {
-                // console.log('... data.url ...', data.url)
+                console.log('... data.url ...', data.url)
                 // if (data.url.includes('success')) {
                 //     console.log('Payment is successfully made.')
                 //     submitCart()
