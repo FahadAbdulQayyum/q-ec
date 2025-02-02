@@ -123,9 +123,9 @@ const UpperBanner = () => {
                 className="bg-white text-black text-xl fixed bottom-0 right-0 border-l-4 border-orange-400"
             >{process.env.NEXT_PUBLIC_ENV}
             </div> */}
-            <div className="fixed bottom-4 left-4">
+            <div className="fixed top-2 -right-6">
                 {!isOpen && (
-                    <Button onClick={() => setIsOpen(true)} className={`${envColor} text-white fixed top-2 -right-3`}>                        |
+                    <Button onClick={() => setIsOpen(true)} className={`${envColor} text-white hover:${envColor}`}>                        |
 
                     </Button>
                 )}
