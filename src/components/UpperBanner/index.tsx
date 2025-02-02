@@ -35,6 +35,13 @@ const UpperBanner = () => {
                 ? "bg-red-600"
                 : "bg-purple-600";
 
+    const envColorBorder =
+        process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
+            ? "border-pink-600"
+            : process.env.NEXT_PUBLIC_ENV === "beta" || process.env.NEXT_PUBLIC_ENV === "BETA"
+                ? "border-red-600"
+                : "border-purple-600";
+
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -127,7 +134,7 @@ const UpperBanner = () => {
                     animate={{ x: isOpen ? 0 : "100%" }}
                     exit={{ x: "100%" }}
                     transition={{ type: "tween", duration: 0.5 }}
-                    className={`fixed top-2 -right-3 bg-white text-black text-xl border-l-4 border-${envColor.slice(3).toString()} p-1 shadow-lg`}
+                    className={`fixed top-2 -right-3 bg-white text-black text-xl border-l-4 ${envColorBorder} p-1 shadow-lg`}
                 >
                     {process.env.NEXT_PUBLIC_ENV}
                 </motion.div>
