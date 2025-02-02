@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_ENVV=dev next dev",
+    "TRN": "cross-env NODE_ENVV=TRN next dev",
+    "DEV": "cross-env NODE_ENVV=DEV next dev",
+    "SIT": "cross-env NODE_ENVV=SIT next dev",
+    "UAT": "cross-env NODE_ENVV=UAT next dev",
+    "PROD": "cross-env NODE_ENVV=PROD next dev",
+    "DR": "cross-env NODE_ENV=DR next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:run:sign": "cypress run --spec cypress/e2e/sign.cy.tsx"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.2",
@@ -20,6 +27,7 @@
     "@shadcn/ui": "^0.0.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cross-env": "^7.0.3",
     "embla-carousel-react": "^8.5.1",
     "lucide-react": "^0.468.0",
     "next": "14.2.3",
