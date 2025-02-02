@@ -28,13 +28,12 @@ const UpperBanner = () => {
 
     const loading = useSelector((state: RootState) => state.loading.loading);
 
-    const envColor = process.env.NEXT_PUBLIC_ENV == "dev"
-        ? "orange-600"
-        : process.env.NEXT_PUBLIC_ENV == "DEV"
-            ? "purple-600"
-            : process.env.NEXT_PUBLIC_ENV == "beta" || "BETA"
-                ? "red-600"
-                : "pink-600"
+    const envColor =
+        process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
+            ? "bg-pink-600"
+            : process.env.NEXT_PUBLIC_ENV === "beta" || process.env.NEXT_PUBLIC_ENV === "BETA"
+                ? "bg-red-600"
+                : "bg-purple-600";
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +48,7 @@ const UpperBanner = () => {
 
 
     useEffect(() => {
-        console.log('Current ENV is', process.env.NEXT_PUBLIC_ENV)
+        console.log('Current ENV is', process.env.NEXT_PUBLIC_ENV, envColor, envColor.slice(3))
         setIsHydrated(true); // Mark hydration as complete
 
         const fetchUserInfo = async () => {
@@ -119,8 +118,8 @@ const UpperBanner = () => {
             </div> */}
             <div className="fixed bottom-4 left-4">
                 {!isOpen && (
-                    <Button onClick={() => setIsOpen(true)} className={`bg-${envColor} text-white fixed top-2 -right-3`}>
-                        |
+                    <Button onClick={() => setIsOpen(true)} className={`${envColor} text-white fixed top-2 -right-3`}>                        |
+
                     </Button>
                 )}
                 <motion.div
@@ -128,7 +127,7 @@ const UpperBanner = () => {
                     animate={{ x: isOpen ? 0 : "100%" }}
                     exit={{ x: "100%" }}
                     transition={{ type: "tween", duration: 0.5 }}
-                    className={`fixed top-2 -right-3 bg-${envColor} text-black text-xl border-l-4 border-${envColor} p-4 shadow-lg`}
+                    className={`fixed top-2 -right-3 bg-white text-black text-xl border-l-4 border-${envColor.slice(3).toString()} p-1 shadow-lg`}
                 >
                     {process.env.NEXT_PUBLIC_ENV}
                 </motion.div>
