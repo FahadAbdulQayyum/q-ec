@@ -30,17 +30,19 @@ export async function POST(request: Request) {
       const doesExist = result.filter((r: signInType) => r.email === validatedData.email)
       console.log("doesExist:", doesExist);
 
-    if (doesExist.length) {
+    if (doesExist?.length > 0) {
       const doesPasswordMatch = doesExist[0].password === validatedData.password;
       console.log('...doesPasswordMatch...', doesPasswordMatch);
       if(doesPasswordMatch) {
         return NextResponse.json(
           { success: true, msg: "Successfully Logged In", status: 200, data: doesExist},
+          { status: 200 }
         );
       }
       console.log('...bypassed...')
-          return NextResponse.json({ success: false, msg: "Invalid Credentials", status: 400 });
+        return NextResponse.json({ success: false, msg: "Invalid Credentials", status: 404 },{ status: 404 });
     }
+    return NextResponse.json({ success: false, msg: "Invalid Credentials", status: 404 },{ status: 404 });
   } catch (err) {
     if (err instanceof z.ZodError) {
       console.error("Validation error:", err.errors);

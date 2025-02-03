@@ -86,7 +86,12 @@ const config: Config = {
 		  },
 		// },
 		// },
-	}
+	},
+	safelist: [
+		"bg-pink-600",
+		"bg-red-600",
+		"bg-purple-600"
+	  ],
   },
   plugins: [require("tailwindcss-animate")],
 };

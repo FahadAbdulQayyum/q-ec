@@ -10,7 +10,7 @@ describe("UpperBanner Component", () => {
     });
   
     it("should display Sign In and Join Us when user is not logged in", () => {
-      cy.contains("Join Us").should("exist");
+      cy.contains("Join Us").should("exist")
       cy.contains("Sign In").should("exist");
     });
   
