@@ -120,7 +120,7 @@ const UpperBanner = () => {
 
             if (response.ok) {
                 // Redirect to the sign-in page after logout
-                localStorage.setItem("userInfo", "")
+                localStorage.clear();
                 router.push('/Sign/In');
             } else {
                 alert('Failed to log out. Please try again.');
