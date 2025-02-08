@@ -38,7 +38,7 @@ const UpperBanner = () => {
     const envColorBorder =
         process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
             ? "border-pink-600"
-            : process.env.NEXT_PUBLIC_ENV === "beta" || process.env.NEXT_PUBLIC_ENV === "BETA"
+            : process.env.NEXT_PUBLIC_ENV === "UAT" || process.env.NEXT_PUBLIC_ENV === "uat"
                 ? "border-red-600"
                 : "border-purple-600";
 
