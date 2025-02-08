@@ -110,6 +110,26 @@ const UpperBanner = () => {
         return <div className="bg-primary black-black py-2 px-standardSize"></div>;
     }
 
+    const handleLogout = async () => {
+        try {
+            // Call the logout API route
+            const response = await fetch('/api/logout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                // Redirect to the sign-in page after logout
+                router.push('/signin');
+            } else {
+                alert('Failed to log out. Please try again.');
+            }
+        } catch (err) {
+            console.error('Error during logout:', err);
+            alert('An error occurred. Please try again.');
+        }
+    };
+
     return (
         <div className="bg-primary black-black flex flex-col md:flex-row justify-between items-center py-2 px-standardSize bg-primaryy">
 
@@ -168,7 +188,7 @@ const UpperBanner = () => {
                                     Welcome, {userInfo?.firstname}!
                                 </Link>
                             </li>
-                            <li className="ml-4">
+                            <li className="ml-4" onClick={handleLogout}>
                                 <Link href="/Sign/in" aria-label="Sign into your account" className="hover:underline">
                                     <RiLogoutCircleLine size={20} />
                                 </Link>
