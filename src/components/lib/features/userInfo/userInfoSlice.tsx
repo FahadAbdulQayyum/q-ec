@@ -38,12 +38,12 @@ const userInfoSlice = createSlice({
                 state.userInfo = action.payload; // Add the new user to the existing array
             }
         },
-        // resetUserInfo: (state) => {
-        //     state.userInfo = null; // Reset userInfo to null
-        // },
+        resetUserInfo: (state) => {
+            state.userInfo = null; // Reset userInfo to null
+        },
     },
 });
 
-// export const { initializeUserInfo, resetUserInfo } = userInfoSlice.actions;
-export const { initializeUserInfo } = userInfoSlice.actions;
+export const { initializeUserInfo, resetUserInfo } = userInfoSlice.actions;
+// export const { initializeUserInfo } = userInfoSlice.actions;
 export default userInfoSlice.reducer;

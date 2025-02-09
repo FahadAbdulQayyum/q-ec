@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/components/lib/hooks";
 import { RootState } from "../lib/store";
 import { useEffect, useState } from "react";
-// import { initializeUserInfo, resetUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
-import { initializeUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
+import { initializeUserInfo, resetUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
+// import { initializeUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ const UpperBanner = () => {
     const router = useRouter();
     const [isHydrated, setIsHydrated] = useState(false); // Ensure hydration before accessing localStorage
     const [isFetched, setIsFetched] = useState(false); // Track if data fetching is complete
-    const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
+    const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo?.userInfo);
 
     const [isOpen, setIsOpen] = useState(false);
     const [loaderWidth, setLoaderWidth] = useState(0);
@@ -71,8 +71,8 @@ const UpperBanner = () => {
                 // Clear localStorage
                 localStorage.clear();
 
-                // // Reset Redux state
-                // dispatch(resetUserInfo());
+                // Reset Redux state
+                dispatch(resetUserInfo());
 
                 // Redirect to the sign-in page after logout
                 router.push('/Sign/In');

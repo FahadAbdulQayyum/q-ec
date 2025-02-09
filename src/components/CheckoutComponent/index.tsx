@@ -30,7 +30,7 @@ const CheckoutComponent = ({ btn }: { btn: string }) => {
         setCartInfo([{ obj: { productName }, day: cart.day, hour: cart.hour }])
     }, [cart])
 
-    const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo.userInfo);
+    const userInfo: UserInfo | null = useSelector((state: RootState) => state.userInfo?.userInfo);
 
     const submitCart = async () => {
         const allInOne = {
