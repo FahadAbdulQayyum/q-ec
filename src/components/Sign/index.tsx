@@ -166,8 +166,12 @@ const Sign: React.FC<SignProps> = ({ signup }) => {
                         title: "Successfully!",
                         description: resp.msg
                     })
+
+                // Save user info to localStorage
+                localStorage.setItem("userInfo", JSON.stringify(resp.data[0]));
+
                 dispatch(initializeUserInfo(resp.data[0]));
-                await router.push('/')
+                router.push('/')
                 setLoading(false)
             } catch (err) {
                 console.error('Fetch error:', err)
