@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import UpperBanner from "@/components/UpperBanner";
+// import UpperBannerD from "@/components/UpperBannerD";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <span className="relative">
             <span className="fixed top-0 left-0 right-0 z-50">
               <UpperBanner />
+              {/* <UpperBannerD /> */}
               <Navbar />
             </span>
             <div className="mt-24">
