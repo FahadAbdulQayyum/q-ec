@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/components/lib/hooks";
 import { RootState } from "../lib/store";
 import { useEffect, useState } from "react";
-import { initializeUserInfo, resetUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
+// import { initializeUserInfo, resetUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
+import { initializeUserInfo, UserInfo } from "../lib/features/userInfo/userInfoSlice";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -22,19 +23,19 @@ const UpperBanner = () => {
 
     const loading = useSelector((state: RootState) => state.loading.loading);
 
-        const envColor =
-            process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
-                ? "bg-pink-600"
-                : process.env.NEXT_PUBLIC_ENV === "uat" || process.env.NEXT_PUBLIC_ENV === "UAT"
-                    ? "bg-red-600"
-                    : "bg-purple-600";
+    const envColor =
+        process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
+            ? "bg-pink-600"
+            : process.env.NEXT_PUBLIC_ENV === "uat" || process.env.NEXT_PUBLIC_ENV === "UAT"
+                ? "bg-red-600"
+                : "bg-purple-600";
 
-        const envColorBorder =
-            process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
-                ? "border-pink-600"
-                : process.env.NEXT_PUBLIC_ENV === "UAT" || process.env.NEXT_PUBLIC_ENV === "uat"
-                    ? "border-red-600"
-                    : "border-purple-600";
+    const envColorBorder =
+        process.env.NEXT_PUBLIC_ENV === "DEV" || process.env.NEXT_PUBLIC_ENV === "dev"
+            ? "border-pink-600"
+            : process.env.NEXT_PUBLIC_ENV === "UAT" || process.env.NEXT_PUBLIC_ENV === "uat"
+                ? "border-red-600"
+                : "border-purple-600";
 
 
     useEffect(() => {
@@ -70,8 +71,8 @@ const UpperBanner = () => {
                 // Clear localStorage
                 localStorage.clear();
 
-                // Reset Redux state
-                dispatch(resetUserInfo());
+                // // Reset Redux state
+                // dispatch(resetUserInfo());
 
                 // Redirect to the sign-in page after logout
                 router.push('/Sign/In');
